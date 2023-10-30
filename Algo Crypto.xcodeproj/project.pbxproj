@@ -1,0 +1,592 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E9CA112E2AF070F50077BBAC /* Algo_CryptoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA112D2AF070F50077BBAC /* Algo_CryptoApp.swift */; };
+		E9CA11302AF070F50077BBAC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA112F2AF070F50077BBAC /* ContentView.swift */; };
+		E9CA11322AF070F50077BBAC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA11312AF070F50077BBAC /* Item.swift */; };
+		E9CA11342AF070F70077BBAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9CA11332AF070F70077BBAC /* Assets.xcassets */; };
+		E9CA11372AF070F70077BBAC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9CA11362AF070F70077BBAC /* Preview Assets.xcassets */; };
+		E9CA11422AF070F70077BBAC /* Algo_CryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA11412AF070F70077BBAC /* Algo_CryptoTests.swift */; };
+		E9CA114C2AF070F70077BBAC /* Algo_CryptoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA114B2AF070F70077BBAC /* Algo_CryptoUITests.swift */; };
+		E9CA114E2AF070F70077BBAC /* Algo_CryptoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA114D2AF070F70077BBAC /* Algo_CryptoUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E9CA113E2AF070F70077BBAC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E9CA11222AF070F50077BBAC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E9CA11292AF070F50077BBAC;
+			remoteInfo = "Algo Crypto";
+		};
+		E9CA11482AF070F70077BBAC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E9CA11222AF070F50077BBAC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E9CA11292AF070F50077BBAC;
+			remoteInfo = "Algo Crypto";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E9CA112A2AF070F50077BBAC /* Algo Crypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Algo Crypto.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9CA112D2AF070F50077BBAC /* Algo_CryptoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algo_CryptoApp.swift; sourceTree = "<group>"; };
+		E9CA112F2AF070F50077BBAC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E9CA11312AF070F50077BBAC /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		E9CA11332AF070F70077BBAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E9CA11362AF070F70077BBAC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E9CA11382AF070F70077BBAC /* Algo_Crypto.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Algo_Crypto.entitlements; sourceTree = "<group>"; };
+		E9CA113D2AF070F70077BBAC /* Algo CryptoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Algo CryptoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9CA11412AF070F70077BBAC /* Algo_CryptoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algo_CryptoTests.swift; sourceTree = "<group>"; };
+		E9CA11472AF070F70077BBAC /* Algo CryptoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Algo CryptoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9CA114B2AF070F70077BBAC /* Algo_CryptoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algo_CryptoUITests.swift; sourceTree = "<group>"; };
+		E9CA114D2AF070F70077BBAC /* Algo_CryptoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algo_CryptoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E9CA11272AF070F50077BBAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9CA113A2AF070F70077BBAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9CA11442AF070F70077BBAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E9CA11212AF070F50077BBAC = {
+			isa = PBXGroup;
+			children = (
+				E9CA112C2AF070F50077BBAC /* Algo Crypto */,
+				E9CA11402AF070F70077BBAC /* Algo CryptoTests */,
+				E9CA114A2AF070F70077BBAC /* Algo CryptoUITests */,
+				E9CA112B2AF070F50077BBAC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E9CA112B2AF070F50077BBAC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E9CA112A2AF070F50077BBAC /* Algo Crypto.app */,
+				E9CA113D2AF070F70077BBAC /* Algo CryptoTests.xctest */,
+				E9CA11472AF070F70077BBAC /* Algo CryptoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E9CA112C2AF070F50077BBAC /* Algo Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				E9CA112D2AF070F50077BBAC /* Algo_CryptoApp.swift */,
+				E9CA112F2AF070F50077BBAC /* ContentView.swift */,
+				E9CA11312AF070F50077BBAC /* Item.swift */,
+				E9CA11332AF070F70077BBAC /* Assets.xcassets */,
+				E9CA11382AF070F70077BBAC /* Algo_Crypto.entitlements */,
+				E9CA11352AF070F70077BBAC /* Preview Content */,
+			);
+			path = "Algo Crypto";
+			sourceTree = "<group>";
+		};
+		E9CA11352AF070F70077BBAC /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E9CA11362AF070F70077BBAC /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E9CA11402AF070F70077BBAC /* Algo CryptoTests */ = {
+			isa = PBXGroup;
+			children = (
+				E9CA11412AF070F70077BBAC /* Algo_CryptoTests.swift */,
+			);
+			path = "Algo CryptoTests";
+			sourceTree = "<group>";
+		};
+		E9CA114A2AF070F70077BBAC /* Algo CryptoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E9CA114B2AF070F70077BBAC /* Algo_CryptoUITests.swift */,
+				E9CA114D2AF070F70077BBAC /* Algo_CryptoUITestsLaunchTests.swift */,
+			);
+			path = "Algo CryptoUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E9CA11292AF070F50077BBAC /* Algo Crypto */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9CA11512AF070F70077BBAC /* Build configuration list for PBXNativeTarget "Algo Crypto" */;
+			buildPhases = (
+				E9CA11262AF070F50077BBAC /* Sources */,
+				E9CA11272AF070F50077BBAC /* Frameworks */,
+				E9CA11282AF070F50077BBAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Algo Crypto";
+			productName = "Algo Crypto";
+			productReference = E9CA112A2AF070F50077BBAC /* Algo Crypto.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E9CA113C2AF070F70077BBAC /* Algo CryptoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9CA11542AF070F70077BBAC /* Build configuration list for PBXNativeTarget "Algo CryptoTests" */;
+			buildPhases = (
+				E9CA11392AF070F70077BBAC /* Sources */,
+				E9CA113A2AF070F70077BBAC /* Frameworks */,
+				E9CA113B2AF070F70077BBAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E9CA113F2AF070F70077BBAC /* PBXTargetDependency */,
+			);
+			name = "Algo CryptoTests";
+			productName = "Algo CryptoTests";
+			productReference = E9CA113D2AF070F70077BBAC /* Algo CryptoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E9CA11462AF070F70077BBAC /* Algo CryptoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9CA11572AF070F70077BBAC /* Build configuration list for PBXNativeTarget "Algo CryptoUITests" */;
+			buildPhases = (
+				E9CA11432AF070F70077BBAC /* Sources */,
+				E9CA11442AF070F70077BBAC /* Frameworks */,
+				E9CA11452AF070F70077BBAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E9CA11492AF070F70077BBAC /* PBXTargetDependency */,
+			);
+			name = "Algo CryptoUITests";
+			productName = "Algo CryptoUITests";
+			productReference = E9CA11472AF070F70077BBAC /* Algo CryptoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E9CA11222AF070F50077BBAC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					E9CA11292AF070F50077BBAC = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					E9CA113C2AF070F70077BBAC = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = E9CA11292AF070F50077BBAC;
+					};
+					E9CA11462AF070F70077BBAC = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = E9CA11292AF070F50077BBAC;
+					};
+				};
+			};
+			buildConfigurationList = E9CA11252AF070F50077BBAC /* Build configuration list for PBXProject "Algo Crypto" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E9CA11212AF070F50077BBAC;
+			productRefGroup = E9CA112B2AF070F50077BBAC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E9CA11292AF070F50077BBAC /* Algo Crypto */,
+				E9CA113C2AF070F70077BBAC /* Algo CryptoTests */,
+				E9CA11462AF070F70077BBAC /* Algo CryptoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E9CA11282AF070F50077BBAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9CA11372AF070F70077BBAC /* Preview Assets.xcassets in Resources */,
+				E9CA11342AF070F70077BBAC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9CA113B2AF070F70077BBAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9CA11452AF070F70077BBAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E9CA11262AF070F50077BBAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9CA11302AF070F50077BBAC /* ContentView.swift in Sources */,
+				E9CA11322AF070F50077BBAC /* Item.swift in Sources */,
+				E9CA112E2AF070F50077BBAC /* Algo_CryptoApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9CA11392AF070F70077BBAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9CA11422AF070F70077BBAC /* Algo_CryptoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9CA11432AF070F70077BBAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9CA114E2AF070F70077BBAC /* Algo_CryptoUITestsLaunchTests.swift in Sources */,
+				E9CA114C2AF070F70077BBAC /* Algo_CryptoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E9CA113F2AF070F70077BBAC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E9CA11292AF070F50077BBAC /* Algo Crypto */;
+			targetProxy = E9CA113E2AF070F70077BBAC /* PBXContainerItemProxy */;
+		};
+		E9CA11492AF070F70077BBAC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E9CA11292AF070F50077BBAC /* Algo Crypto */;
+			targetProxy = E9CA11482AF070F70077BBAC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E9CA114F2AF070F70077BBAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E9CA11502AF070F70077BBAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		E9CA11522AF070F70077BBAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Algo Crypto/Algo_Crypto.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Algo Crypto/Preview Content\"";
+				DEVELOPMENT_TEAM = BK8PRMYFUA;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thomaslebonnec.Algo-Crypto";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E9CA11532AF070F70077BBAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Algo Crypto/Algo_Crypto.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Algo Crypto/Preview Content\"";
+				DEVELOPMENT_TEAM = BK8PRMYFUA;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thomaslebonnec.Algo-Crypto";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		E9CA11552AF070F70077BBAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BK8PRMYFUA;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thomaslebonnec.Algo-CryptoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Algo Crypto.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Algo Crypto";
+			};
+			name = Debug;
+		};
+		E9CA11562AF070F70077BBAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BK8PRMYFUA;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thomaslebonnec.Algo-CryptoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Algo Crypto.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Algo Crypto";
+			};
+			name = Release;
+		};
+		E9CA11582AF070F70077BBAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BK8PRMYFUA;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thomaslebonnec.Algo-CryptoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Algo Crypto";
+			};
+			name = Debug;
+		};
+		E9CA11592AF070F70077BBAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BK8PRMYFUA;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thomaslebonnec.Algo-CryptoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Algo Crypto";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E9CA11252AF070F50077BBAC /* Build configuration list for PBXProject "Algo Crypto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9CA114F2AF070F70077BBAC /* Debug */,
+				E9CA11502AF070F70077BBAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9CA11512AF070F70077BBAC /* Build configuration list for PBXNativeTarget "Algo Crypto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9CA11522AF070F70077BBAC /* Debug */,
+				E9CA11532AF070F70077BBAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9CA11542AF070F70077BBAC /* Build configuration list for PBXNativeTarget "Algo CryptoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9CA11552AF070F70077BBAC /* Debug */,
+				E9CA11562AF070F70077BBAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9CA11572AF070F70077BBAC /* Build configuration list for PBXNativeTarget "Algo CryptoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9CA11582AF070F70077BBAC /* Debug */,
+				E9CA11592AF070F70077BBAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E9CA11222AF070F50077BBAC /* Project object */;
+}
