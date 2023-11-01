@@ -7,14 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E90FFB142AF1771F00E1DE47 /* Congruence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90FFB132AF1771F00E1DE47 /* Congruence.swift */; };
 		E9CA112E2AF070F50077BBAC /* Algo_CryptoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA112D2AF070F50077BBAC /* Algo_CryptoApp.swift */; };
 		E9CA11302AF070F50077BBAC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA112F2AF070F50077BBAC /* ContentView.swift */; };
-		E9CA11322AF070F50077BBAC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA11312AF070F50077BBAC /* Item.swift */; };
 		E9CA11342AF070F70077BBAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9CA11332AF070F70077BBAC /* Assets.xcassets */; };
 		E9CA11372AF070F70077BBAC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9CA11362AF070F70077BBAC /* Preview Assets.xcassets */; };
 		E9CA11422AF070F70077BBAC /* Algo_CryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA11412AF070F70077BBAC /* Algo_CryptoTests.swift */; };
 		E9CA114C2AF070F70077BBAC /* Algo_CryptoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA114B2AF070F70077BBAC /* Algo_CryptoUITests.swift */; };
 		E9CA114E2AF070F70077BBAC /* Algo_CryptoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA114D2AF070F70077BBAC /* Algo_CryptoUITestsLaunchTests.swift */; };
+		E9CA115C2AF072580077BBAC /* EuclidAlgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA115B2AF072580077BBAC /* EuclidAlgo.swift */; };
+		E9CA115E2AF072730077BBAC /* ExtendedEuclidAlgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA115D2AF072730077BBAC /* ExtendedEuclidAlgo.swift */; };
+		E9CA11622AF072BA0077BBAC /* EdgeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA11612AF072BA0077BBAC /* EdgeBorder.swift */; };
+		E9CA11642AF072DA0077BBAC /* ACButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA11632AF072DA0077BBAC /* ACButton.swift */; };
+		E9CA11662AF073220077BBAC /* NumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA11652AF073220077BBAC /* NumberField.swift */; };
+		E9CA11682AF0736D0077BBAC /* SolutionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA11672AF0736D0077BBAC /* SolutionSection.swift */; };
+		E9CA116A2AF073890077BBAC /* EuclidAlgoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA11692AF073890077BBAC /* EuclidAlgoView.swift */; };
+		E9CA116C2AF073A90077BBAC /* ExtendedEuclidAlgoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA116B2AF073A90077BBAC /* ExtendedEuclidAlgoView.swift */; };
+		E9CB2E672AF199B40088679B /* CongruenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CB2E662AF199B40088679B /* CongruenceView.swift */; };
+		E9E3B3832AF08F49000B258B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3B3822AF08F49000B258B /* MainView.swift */; };
+		E9E3B3852AF08FF0000B258B /* PageStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3B3842AF08FF0000B258B /* PageStack.swift */; };
+		E9E3B3872AF09165000B258B /* PageNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3B3862AF09165000B258B /* PageNavigator.swift */; };
+		E9E3B3892AF0B72E000B258B /* Modulo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3B3882AF0B72E000B258B /* Modulo.swift */; };
+		E9E3B38B2AF0C6D6000B258B /* ModuloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3B38A2AF0C6D6000B258B /* ModuloView.swift */; };
+		E9E3B38D2AF134DD000B258B /* CalculationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3B38C2AF134DD000B258B /* CalculationPage.swift */; };
+		E9E3B3902AF13722000B258B /* CalculationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3B38F2AF13722000B258B /* CalculationProtocol.swift */; };
+		E9E3B3952AF13DC9000B258B /* SolutionSectionsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3B3942AF13DC9000B258B /* SolutionSectionsData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +52,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E90FFB132AF1771F00E1DE47 /* Congruence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Congruence.swift; sourceTree = "<group>"; };
 		E9CA112A2AF070F50077BBAC /* Algo Crypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Algo Crypto.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9CA112D2AF070F50077BBAC /* Algo_CryptoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algo_CryptoApp.swift; sourceTree = "<group>"; };
 		E9CA112F2AF070F50077BBAC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		E9CA11312AF070F50077BBAC /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		E9CA11332AF070F70077BBAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9CA11362AF070F70077BBAC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E9CA11382AF070F70077BBAC /* Algo_Crypto.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Algo_Crypto.entitlements; sourceTree = "<group>"; };
@@ -47,6 +64,23 @@
 		E9CA11472AF070F70077BBAC /* Algo CryptoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Algo CryptoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9CA114B2AF070F70077BBAC /* Algo_CryptoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algo_CryptoUITests.swift; sourceTree = "<group>"; };
 		E9CA114D2AF070F70077BBAC /* Algo_CryptoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algo_CryptoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E9CA115B2AF072580077BBAC /* EuclidAlgo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EuclidAlgo.swift; sourceTree = "<group>"; };
+		E9CA115D2AF072730077BBAC /* ExtendedEuclidAlgo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedEuclidAlgo.swift; sourceTree = "<group>"; };
+		E9CA11612AF072BA0077BBAC /* EdgeBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeBorder.swift; sourceTree = "<group>"; };
+		E9CA11632AF072DA0077BBAC /* ACButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACButton.swift; sourceTree = "<group>"; };
+		E9CA11652AF073220077BBAC /* NumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberField.swift; sourceTree = "<group>"; };
+		E9CA11672AF0736D0077BBAC /* SolutionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionSection.swift; sourceTree = "<group>"; };
+		E9CA11692AF073890077BBAC /* EuclidAlgoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EuclidAlgoView.swift; sourceTree = "<group>"; };
+		E9CA116B2AF073A90077BBAC /* ExtendedEuclidAlgoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedEuclidAlgoView.swift; sourceTree = "<group>"; };
+		E9CB2E662AF199B40088679B /* CongruenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongruenceView.swift; sourceTree = "<group>"; };
+		E9E3B3822AF08F49000B258B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		E9E3B3842AF08FF0000B258B /* PageStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageStack.swift; sourceTree = "<group>"; };
+		E9E3B3862AF09165000B258B /* PageNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageNavigator.swift; sourceTree = "<group>"; };
+		E9E3B3882AF0B72E000B258B /* Modulo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modulo.swift; sourceTree = "<group>"; };
+		E9E3B38A2AF0C6D6000B258B /* ModuloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuloView.swift; sourceTree = "<group>"; };
+		E9E3B38C2AF134DD000B258B /* CalculationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationPage.swift; sourceTree = "<group>"; };
+		E9E3B38F2AF13722000B258B /* CalculationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationProtocol.swift; sourceTree = "<group>"; };
+		E9E3B3942AF13DC9000B258B /* SolutionSectionsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionSectionsData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +133,8 @@
 			children = (
 				E9CA112D2AF070F50077BBAC /* Algo_CryptoApp.swift */,
 				E9CA112F2AF070F50077BBAC /* ContentView.swift */,
-				E9CA11312AF070F50077BBAC /* Item.swift */,
+				E9CA115F2AF072A20077BBAC /* View */,
+				E9CA115A2AF0724D0077BBAC /* Data */,
 				E9CA11332AF070F70077BBAC /* Assets.xcassets */,
 				E9CA11382AF070F70077BBAC /* Algo_Crypto.entitlements */,
 				E9CA11352AF070F70077BBAC /* Preview Content */,
@@ -130,6 +165,62 @@
 				E9CA114D2AF070F70077BBAC /* Algo_CryptoUITestsLaunchTests.swift */,
 			);
 			path = "Algo CryptoUITests";
+			sourceTree = "<group>";
+		};
+		E9CA115A2AF0724D0077BBAC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				E9CA115B2AF072580077BBAC /* EuclidAlgo.swift */,
+				E9CA115D2AF072730077BBAC /* ExtendedEuclidAlgo.swift */,
+				E9E3B3882AF0B72E000B258B /* Modulo.swift */,
+				E90FFB132AF1771F00E1DE47 /* Congruence.swift */,
+				E9E3B38E2AF1370F000B258B /* Protocols */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		E9CA115F2AF072A20077BBAC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9E3B3822AF08F49000B258B /* MainView.swift */,
+				E9CA11692AF073890077BBAC /* EuclidAlgoView.swift */,
+				E9CA116B2AF073A90077BBAC /* ExtendedEuclidAlgoView.swift */,
+				E9E3B38A2AF0C6D6000B258B /* ModuloView.swift */,
+				E9CB2E662AF199B40088679B /* CongruenceView.swift */,
+				E9CA11602AF072A80077BBAC /* Composants */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9CA11602AF072A80077BBAC /* Composants */ = {
+			isa = PBXGroup;
+			children = (
+				E9E3B3862AF09165000B258B /* PageNavigator.swift */,
+				E9E3B3842AF08FF0000B258B /* PageStack.swift */,
+				E9CA11672AF0736D0077BBAC /* SolutionSection.swift */,
+				E9CA11652AF073220077BBAC /* NumberField.swift */,
+				E9CA11632AF072DA0077BBAC /* ACButton.swift */,
+				E9CA11612AF072BA0077BBAC /* EdgeBorder.swift */,
+				E9E3B3912AF13BB4000B258B /* CalculationPage */,
+			);
+			path = Composants;
+			sourceTree = "<group>";
+		};
+		E9E3B38E2AF1370F000B258B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E9E3B38F2AF13722000B258B /* CalculationProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E9E3B3912AF13BB4000B258B /* CalculationPage */ = {
+			isa = PBXGroup;
+			children = (
+				E9E3B38C2AF134DD000B258B /* CalculationPage.swift */,
+				E9E3B3942AF13DC9000B258B /* SolutionSectionsData.swift */,
+			);
+			path = CalculationPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +353,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9CA115C2AF072580077BBAC /* EuclidAlgo.swift in Sources */,
+				E9E3B3902AF13722000B258B /* CalculationProtocol.swift in Sources */,
+				E9E3B3852AF08FF0000B258B /* PageStack.swift in Sources */,
+				E9CB2E672AF199B40088679B /* CongruenceView.swift in Sources */,
+				E9CA11682AF0736D0077BBAC /* SolutionSection.swift in Sources */,
+				E9CA11662AF073220077BBAC /* NumberField.swift in Sources */,
 				E9CA11302AF070F50077BBAC /* ContentView.swift in Sources */,
-				E9CA11322AF070F50077BBAC /* Item.swift in Sources */,
+				E9E3B38B2AF0C6D6000B258B /* ModuloView.swift in Sources */,
+				E9E3B3892AF0B72E000B258B /* Modulo.swift in Sources */,
+				E9CA11642AF072DA0077BBAC /* ACButton.swift in Sources */,
 				E9CA112E2AF070F50077BBAC /* Algo_CryptoApp.swift in Sources */,
+				E9CA116C2AF073A90077BBAC /* ExtendedEuclidAlgoView.swift in Sources */,
+				E90FFB142AF1771F00E1DE47 /* Congruence.swift in Sources */,
+				E9E3B3832AF08F49000B258B /* MainView.swift in Sources */,
+				E9E3B3872AF09165000B258B /* PageNavigator.swift in Sources */,
+				E9E3B38D2AF134DD000B258B /* CalculationPage.swift in Sources */,
+				E9E3B3952AF13DC9000B258B /* SolutionSectionsData.swift in Sources */,
+				E9CA11622AF072BA0077BBAC /* EdgeBorder.swift in Sources */,
+				E9CA115E2AF072730077BBAC /* ExtendedEuclidAlgo.swift in Sources */,
+				E9CA116A2AF073890077BBAC /* EuclidAlgoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,12 +461,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -410,11 +519,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
@@ -425,6 +535,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Algo Crypto/Algo_Crypto.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -433,17 +544,22 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Algo Crypto";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = "1.0 alpha 1";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thomaslebonnec.Algo-Crypto";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -453,6 +569,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Algo Crypto/Algo_Crypto.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -461,17 +578,22 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Algo Crypto";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = "1.0 alpha 1";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thomaslebonnec.Algo-Crypto";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
