@@ -23,7 +23,7 @@ struct CalculationPage<T: CalculationProtocol, Content: View>: View {
     
     var body: some View {
         PageNavigator(title: pageTitle, buttonTitle: "Page Principale") {
-            self.page = .main
+            self.page = .euclid
         } view: {
             
             
