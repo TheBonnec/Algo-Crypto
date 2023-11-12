@@ -16,6 +16,13 @@ final class Modulo: CalculationProtocol {
     var n: Int?
     private(set) var result: Int
     
+    init(x: Int? = nil, a: Int? = nil, n: Int? = nil) {
+        self.x = x
+        self.a = a
+        self.n = n
+        self.result = 0
+    }
+    
     init() {
         self.x = nil
         self.a = nil
@@ -25,8 +32,7 @@ final class Modulo: CalculationProtocol {
     
     
     func calculate() {
-        guard x != nil && a != nil && n != nil else { return }
-        guard a! > 0 && n! > 0 else { return }
+        guard inputValidity() else { return }
         
         result = 1
         var base = x! % n!
@@ -42,7 +48,26 @@ final class Modulo: CalculationProtocol {
         }
     }
     
+    
+    
+    func inputValidity() -> Bool {
+        guard x != nil && a != nil && n != nil else { return false }
+        guard a! > 0 && n! > 0 else { return false }
+        return true
+    }
+    
+    
+    
+    func displayLabel() -> String {
+        return "$\(x ?? 0)^{\(a ?? 0)}[\(n ?? 0)]$"
+    }
+    
+    func displayResult() -> String {
+        guard inputValidity() else { return "Input Error" }
+        return "\(result)[\(n!)]"
+    }
+    
     func displayInfo() -> String {
-        return "\(x ?? 0)^\(a ?? 0)[\(n ?? 0)]   =   \(result)[\(n ?? 0)]"
+        return "$\(x ?? 0)^{\(a ?? 0)}[\(n ?? 0)]   =   \(result)[\(n ?? 0)]$"
     }
 }

@@ -28,9 +28,19 @@ final class ExtendedEuclidAlgo: CalculationProtocol {
     }
     
     
+    init(a: Int?, b: Int?) {
+        self.a = a
+        self.b = b
+        self.u = 1
+        self.v = 0
+        self.r = nil
+        self.q = nil
+    }
+    
+    
+    
     func calculate() {
-        guard a != nil && b != nil else { return }
-        guard a != 0 && b != 0 else { return }
+        guard inputValidity() else { return }
         
         self.u = 1
         self.v = 0
@@ -47,6 +57,24 @@ final class ExtendedEuclidAlgo: CalculationProtocol {
         }
     }
     
+    
+    
+    func inputValidity() -> Bool {
+        guard a != nil && b != nil else { return false }
+        guard a != 0 && b != 0 else { return false }
+        return true
+    }
+    
+    
+    
+    func displayLabel() -> String {
+        return "gcd(\(a ?? 0), \(b ?? 0))"
+    }
+    
+    func displayResult() -> String {
+        guard inputValidity() else { return "Input Error" }
+        return "\(r!)"
+    }
     
     func displayInfo() -> String {
         return "a = \(a ?? 0)   b = \(b ?? 0)\nu = \(u)   v = \(v)   r = \(r ?? 0)   q = \(q ?? 0)"

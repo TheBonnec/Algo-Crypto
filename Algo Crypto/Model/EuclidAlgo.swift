@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftData
+import Combine
 
 
 @Model
@@ -21,9 +22,18 @@ final class EuclidAlgo: CalculationProtocol {
         self.r = 0
     }
     
+    init(a: Int?, b: Int?) {
+        self.a = a
+        self.b = b
+        self.r = 0
+    }
+    
+    
     func calculate() {
-        guard a != 0 && b != 0 else { self.r = 0; return }
-        guard a != nil && b != nil else { self.r = 0; return }
+        guard inputValidity() else {
+            self.r = 0
+            return
+        }
         
         // x et y sont des copies de a et b, car r et q sont toujours calculés et n'ont jamais besoin d'être stockés (q inutile, et r = a % b)
         var x = self.a!
@@ -38,6 +48,24 @@ final class EuclidAlgo: CalculationProtocol {
         self.r = x
     }
     
+    
+    
+    func inputValidity() -> Bool {
+        guard a != 0 && b != 0 else { return false }
+        guard a != nil && b != nil else { return false }
+        return true
+    }
+    
+    
+    
+    func displayLabel() -> String {
+        return "gcd(\(a ?? 0), \(b ?? 0))"
+    }
+    
+    func displayResult() -> String {
+        guard inputValidity() else { return "Input Error" }
+        return "\(r)"
+    }
     
     func displayInfo() -> String {
         return "a = \(a ?? 0)   b = \(b ?? 0)   r = \(r)"
