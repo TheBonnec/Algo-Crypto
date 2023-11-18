@@ -10,7 +10,7 @@ import SwiftData
 
 
 @Model
-final class EquationSolver: CalculationProtocol {
+final class LinearEquationInZ: CalculationProtocol {
     
     var a: Int?
     var b: Int?
@@ -50,9 +50,9 @@ final class EquationSolver: CalculationProtocol {
         } else if b! % extendedEuclid.r! == 0 {
             let nbRep = extendedEuclid.r!
             
-            let gcd1 = EuclidAlgo(a: a, b: b)
+            let gcd1 = EuclidAlgo(a: a, b: b, r: 0)
             gcd1.calculate()
-            let gcd2 = EuclidAlgo(a: gcd1.r, b: n)
+            let gcd2 = EuclidAlgo(a: gcd1.r, b: n, r: 0)
             gcd2.calculate()
             
             let na = Int(a! / gcd2.r)
@@ -106,19 +106,11 @@ final class EquationSolver: CalculationProtocol {
         }
     }
     
-    func displayInfo() -> String {
-        var listString = ""
-        for e in self.result {
-            listString.append("\(e), ")
-        }
-        if !listString.isEmpty {
-            listString.removeLast()
-            listString.removeLast()
-            return "Pour $x \\times \(a ?? 0) = \(b ?? 0)[\(n ?? 0)]$,   x peut prendre les valeurs suivantes : \(listString)"
-        } else {
-            return "Pour $x \\times \(a ?? 0) = \(b ?? 0)[\(n ?? 0)]$,   x n'a pas de solution."
-        }
+    
+    func resetInputs() {
+        self.a = nil
+        self.b = nil
+        self.n = nil
+        self.result = []
     }
-    
-    
 }
