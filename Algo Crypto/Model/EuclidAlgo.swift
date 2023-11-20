@@ -22,11 +22,12 @@ final class EuclidAlgo: CalculationProtocol {
         self.r = 0
     }
     
-    init(a: Int?, b: Int?) {
+    init(a: Int?, b: Int?, r: Int) {
         self.a = a
         self.b = b
-        self.r = 0
+        self.r = r
     }
+    
     
     
     func calculate() {
@@ -67,7 +68,10 @@ final class EuclidAlgo: CalculationProtocol {
         return "\(r)"
     }
     
-    func displayInfo() -> String {
-        return "a = \(a ?? 0)   b = \(b ?? 0)   r = \(r)"
+    
+    func resetInputs() {
+        self.a = nil
+        self.b = nil
+        self.r = 0
     }
 }

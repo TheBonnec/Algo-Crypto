@@ -1,5 +1,5 @@
 //
-//  CongruenceView.swift
+//  CongruencePage.swift
 //  Algo Crypto
 //
 //  Created by Thomas Le Bonnec on 15/11/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CongruenceView: View {
+struct CongruencePage: View {
     
     /* ----- Propriétés ----- */
     
@@ -21,7 +21,8 @@ struct CongruenceView: View {
         CalculationPage<Congruence>(
             pageTitle: "Congruence",
             newCalculation: $newCongruence,
-            numberFields: AnyView(numberFields)
+            numberFields: AnyView(numberFields),
+            minimumSavedItemCellSize: 250
         )
     }
     
@@ -52,5 +53,5 @@ struct CongruenceView: View {
 
 
 #Preview {
-    CongruenceView()
+    CongruencePage()
 }

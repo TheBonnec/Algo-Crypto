@@ -31,14 +31,24 @@ final class InverseInZ: CalculationProtocol {
     
     
     func calculate() {
-        guard inputValidity() else { return }
+        guard inputValidity() else { 
+            self.inverse = -1
+            return
+        }
+        
+        guard self.a! < self.n! else {
+            self.inverse = -2
+            return
+        }
         
         let extendedEA = ExtendedEuclidAlgo(a: a, b: n)
         extendedEA.calculate()
         
-        guard extendedEA.r == 1 else { return }
+        guard extendedEA.r == 1 else {
+            self.inverse = -1
+            return
+        }
         self.inverse = (extendedEA.u + n!) % n!
-        print("\(extendedEA.u) \(n!), \((extendedEA.u + n!) % n!)")
     }
     
     
@@ -60,15 +70,16 @@ final class InverseInZ: CalculationProtocol {
         
         if inverse == -1 {
             return "No inverse for \(a!)"
+        } else if inverse == -2 {
+            return "No inverse for $a \\geq n$"
         }
         return "\(inverse)"
     }
     
-    func displayInfo() -> String {
-        if self.inverse == -1 {
-            return "\(a ?? 0) has no inverse in $\\frac{\\mathbb{Z}}{\(n ?? 0)\\mathbb{Z}}$"
-        } else {
-            return "The inverse of \(a ?? 0) in $\\frac{\\mathbb{Z}}{\(n ?? 0)\\mathbb{Z}}$ is \(inverse)"
-        }
+    
+    func resetInputs() {
+        self.a = nil
+        self.n = nil
+        self.inverse = -1
     }
 }

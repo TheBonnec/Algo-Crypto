@@ -60,7 +60,11 @@ final class AdditionInZ: CalculationProtocol {
         return "\(result)"
     }
     
-    func displayInfo() -> String {
-        return "$\\bar{\(a ?? 0)} ⊕ \\bar{\(b ?? 0)} = \\bar{\(result)}$"
+    
+    func resetInputs() {
+        self.a = nil
+        self.b = nil
+        self.n = nil
+        self.result = 0
     }
 }

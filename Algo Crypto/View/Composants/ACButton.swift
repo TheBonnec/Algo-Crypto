@@ -34,9 +34,12 @@ struct ACButton: View {
         case .tertiary:
             self.backgroundColor = Color(UIColor.systemBackground)
             self.textColor = .cyan
-        case .destructive:
+        case .primaryDestructive:
             self.backgroundColor = .pink
             self.textColor = .white
+        case .secondaryDestructive:
+            self.backgroundColor = Color(UIColor.secondarySystemBackground)
+            self.textColor = .pink
         }
     }
     
@@ -47,13 +50,16 @@ struct ACButton: View {
         }, label: {
             HStack{
                 Text(label)
-                    .fontWeight(.semibold)
+                    .fontWeight(.medium)
             }
             .padding(.horizontal, 24)
             .padding(.vertical, 12)
             .foregroundColor(textColor)
+            .background(Gradient(colors: [.white.opacity(0.17), .white.opacity(0)]))
             .background(backgroundColor)
             .cornerRadius(8)
+            //.shadow(color: self.backgroundColor.opacity(0.24), radius: 2.5, x: 0, y: 1)
+            .border(width: 0.5, edges: [.leading, .trailing], color: self.backgroundColor.opacity(0.12))
             .padding(.horizontal)
         })
     }
@@ -63,7 +69,7 @@ struct ACButton: View {
 
 
 enum ButtonStyle {
-    case primary, secondary, tertiary, destructive
+    case primary, secondary, tertiary, primaryDestructive, secondaryDestructive
 }
 
 

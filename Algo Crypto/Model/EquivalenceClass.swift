@@ -69,12 +69,10 @@ final class EquivalenceClass: CalculationProtocol {
         return "Pas de solution pour a > n"
     }
     
-    func displayInfo() -> String {
-        var equivalenceText = ""
-        for e in equivalences {
-            equivalenceText += "\(e), "
-        }
-        
-        return "$\\bar{\(a ?? 0)} = [\(equivalenceText)...]$   dans   $\\frac{\\mathbb{Z}}{\(n ?? 0)\\mathbb{Z}}$"
+    
+    func resetInputs() {
+        self.a = nil
+        self.n = nil
+        self.equivalences = []
     }
 }

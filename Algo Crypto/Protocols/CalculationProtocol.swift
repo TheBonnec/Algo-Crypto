@@ -14,7 +14,9 @@ protocol CalculationProtocol: Identifiable, PersistentModel {
     
     func calculate()
     func inputValidity() -> Bool
+    
     func displayLabel() -> String
     func displayResult() -> String
-    func displayInfo() -> String
+    
+    func resetInputs()
 }

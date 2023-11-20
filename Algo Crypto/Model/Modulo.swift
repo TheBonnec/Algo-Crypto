@@ -34,17 +34,22 @@ final class Modulo: CalculationProtocol {
     func calculate() {
         guard inputValidity() else { return }
         
-        result = 1
+        self.result = 1
         var base = x! % n!
-        var exp = a
+        var exp = a!
         
-        while exp! > 0 {
-            if exp! % 2 == 1 {
-                result = (result * base) % n!
+        while exp > 0 {
+            if exp % 2 == 1 {
+                self.result = (self.result * base) % n!
             }
             
             base = (base * base) % n!
-            exp! /= 2
+            exp /= 2
+        }
+        
+        // Si résultat négatif
+        if self.result < 0 {
+            self.result = (self.result + n!) % n!
         }
     }
     
@@ -67,7 +72,11 @@ final class Modulo: CalculationProtocol {
         return "\(result)[\(n!)]"
     }
     
-    func displayInfo() -> String {
-        return "$\(x ?? 0)^{\(a ?? 0)}[\(n ?? 0)]   =   \(result)[\(n ?? 0)]$"
+    
+    func resetInputs() {
+        self.x = nil
+        self.a = nil
+        self.n = nil
+        self.result = 0
     }
 }

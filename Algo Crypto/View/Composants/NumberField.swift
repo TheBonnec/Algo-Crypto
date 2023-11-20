@@ -22,15 +22,15 @@ struct NumberField: View {
         VStack(alignment: .leading, spacing: 4) {
             if label != nil {
                 Text(label!)
-                    .foregroundStyle(focused ? Color.cyan : Color.black)
+                    .foregroundStyle(focused ? Color.cyan : Color.primary)
             }
             
             TextField("\(placeholder)", value: $input, format: .number)
-                .focused($focused)
-                .font(.title2)
-                .onChange(of: input) { oldValue, newValue in
+                .onChange(of: self.input) { oldValue, newValue in
                     onChangeAction()
                 }
+                .focused($focused)
+                .font(.title2)
         }
         .padding(.horizontal, 0)
         .padding([.vertical], 6)

@@ -7,22 +7,26 @@
 
 import SwiftUI
 import SwiftData
-import Dynamic
 
 
 
 struct ContentView: View {
     
     @Environment(\.modelContext) private var modelContext
-    @State var pageSelected: Page = .euclid
+    @State var selectedPage: PageInfo<AnyView>
     
-    let pages: Pages = Pages()
+    let pages: Pages
+    
+    init() {
+        self.pages = Pages()
+        self.selectedPage = self.pages.defaultPage
+    }
     
 
     var body: some View {
         NavigationSplitView {
             ZStack {
-                Color(.appBackground)
+                Color(.fondTertiaire)
                     .ignoresSafeArea()
                 
                 List {
@@ -30,8 +34,7 @@ struct ContentView: View {
                         Section(pageGroup.groupName) {
                             ForEach(pageGroup.pages) { page in
                                 Button {
-                                    self.pageSelected = page.page
-                                    print()
+                                    self.selectedPage = page
                                 } label: {
                                     HStack {
                                         Text("\(page.pageName)")
@@ -40,7 +43,7 @@ struct ContentView: View {
                                     }
                                     .padding(.horizontal)
                                     .padding(.vertical, 12)
-                                    .background(pageSelected == page.page ? Color.cyan.opacity(0.2) : nil)
+                                    .background(cellBackground(pageInfo: page))
                                     .cornerRadius(8)
                                 }                                
                             }
@@ -48,20 +51,41 @@ struct ContentView: View {
                     }
                 }
                 
+                
+                /*
+                List {
+                    ForEach(pages.pageGroups) { pageGroup in
+                        Section(pageGroup.groupName) {
+                            ForEach(pageGroup.pages) { page in
+                                NavigationLink {
+                                    AnyView(page.destination)
+                                        .padding(.vertical)
+                                } label: {
+                                    Text(page.pageName)
+                                }
+                            }
+                        }
+                    }
+                }
+                */
+                
                 .navigationTitle("Algo Crypto")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar(removing: .sidebarToggle)
-                .navigationDestination(for: Page.self) { page in
-                    //PageSelector(page: page)
-                    EuclidAlgoView()
-                }
             }
         } detail: {
-            PageSelector(page: pageSelected)
-                .padding(.horizontal, 4)
-                .padding(.vertical)
+            selectedPage.destination()
+                .background(Color.fondSecondaire)
         }
         .tint(.cyan)
+    }
+    
+    
+    func cellBackground(pageInfo: PageInfo<AnyView>) -> Color? {
+        if self.selectedPage.page == pageInfo.page {
+            return Color.elémentSecondaire
+        }
+        return nil
     }
 }
 

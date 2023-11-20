@@ -7,12 +7,25 @@
 
 import SwiftUI
 
-struct SolutionCell: View {
+struct SolutionCell: Identifiable, View {
+    
+    let id = UUID()
+    var content: AnyView
+    
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Spacer()
+            content
+            Spacer()
+        }
+        .padding()
+        .background(Color.elémentSecondaire)
+        .cornerRadius(8)
+        .padding(.horizontal)
     }
 }
 
 #Preview {
-    SolutionCell()
+    SolutionCell(content: AnyView(Text("")))
 }

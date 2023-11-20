@@ -13,66 +13,96 @@ import LaTeXSwiftUI
 
 struct CalculationPage<U: CalculationProtocol>: View {
     
+    /* ----- Propriétés ----- */
+    
     @Environment(\.modelContext) private var modelContext
     @Query var saves: [U]
     
     var pageTitle: String
     @Binding var newCalculation: U
     var numberFields: AnyView
-    var solutionSections: [SolutionSectionsData]?
-    var customSolutionSections: AnyView? = nil
+    var customSolutionCells: [SolutionCell]? = nil
+    let minimumSavedItemCellSize: CGFloat
     
+    
+    
+    /* ----- Vue ----- */
     
     var body: some View {
-        VStack(spacing: 16) {
-            // Entrées
-            numberFields
-            
-            
-            SolutionSection(label: newCalculation.displayLabel(), solution: newCalculation.displayResult())
-            
-            // Sections additionnelles de la solution
-            if solutionSections != nil {
-                ForEach(solutionSections!) { ssd in
-                    SolutionSection(label: ssd.label, solution: ssd.solution)
-                }
-            }
-            
-            // Solution Sections Custom
-            if customSolutionSections != nil {
-                customSolutionSections!
-            }
-            
-            
-            HStack(spacing: 0) {
-                ACButton(label: "Réinitialiser et Sauvegarder") {
-                    self.save()
-                }
+        ScrollView {
+            VStack(spacing: 16) {
+                // Entrées
+                numberFields
                 
-                // Bouton pour supprimer les solutions sauvegardés
-                ACButton(label: "Nettoyer", style: .destructive) {
-                    self.deleteAll()
-                }
+                // Solutions
+                solutionSections
+                
+                // Boutons "Sauvegarder", "Réinitialiser", et "Nettoyer"
+                actionButtons
+                
+                // Liste des calculs sauvegardés
+                savedItemsGrid
             }
-            .padding(.top, 16)
-            
-            
-            
-            // Liste des solutions sauvegardées
-            List {
-                ForEach(saves) {save in
-                    LaTeX("\(save.displayLabel())   ->   \(save.displayResult())")
-                }
-                .onDelete(perform: delete)
-            }
-            .scrollContentBackground(.hidden)
+            .padding(.horizontal, 4)
+            .padding(.vertical)
         }
         .navigationTitle(pageTitle)
+        .scrollIndicators(.never)
         .onDisappear {
             self.save()
         }
     }
     
+    
+    
+    var solutionSections: some View {
+        Group {
+            SolutionSection(label: newCalculation.displayLabel(), solution: newCalculation.displayResult())
+            
+            // Custom Solution Sections
+            if customSolutionCells != nil {
+                ForEach(customSolutionCells!) { cell in
+                    cell
+                }
+            }
+        }
+    }
+    
+    
+    
+    var actionButtons: some View {
+        HStack(spacing: 0) {
+            ACButton(label: "Réinitialiser et Sauvegarder") {
+                self.save()
+            }
+            
+            ACButton(label: "Réinitialiser", style: .secondaryDestructive) {
+                self.newCalculation.resetInputs()
+            }
+            
+            // Bouton pour supprimer les solutions sauvegardés
+            ACButton(label: "Nettoyer", style: .primaryDestructive) {
+                self.deleteAll()
+            }
+        }
+        .padding(.top, 16)
+    }
+    
+    
+    
+    var savedItemsGrid: some View {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: minimumSavedItemCellSize), spacing: 16)], spacing: 16) {
+            ForEach(saves) { save in
+                SavedItemCell(label: save.displayLabel(), solution: save.displayResult())
+            }
+        }
+        .padding(.top, 64)
+        .padding(.horizontal, 16)
+    }
+    
+    
+    
+    /* ----- Méthodes ----- */
     
     func save() {
         guard newCalculation.inputValidity() else { return }
@@ -81,11 +111,8 @@ struct CalculationPage<U: CalculationProtocol>: View {
         newCalculation = U()
     }
     
-    func delete(_ indexSet: IndexSet) {
-        for index in indexSet {
-            let calculation = saves[index]
-            modelContext.delete(calculation)
-        }
+    func delete(save: U) {
+        modelContext.delete(save)
     }
     
     func deleteAll() {
@@ -100,5 +127,5 @@ struct CalculationPage<U: CalculationProtocol>: View {
 
 
 #Preview {
-    CalculationPage<EuclidAlgo>(pageTitle: "Euclid Algo", newCalculation: .constant(EuclidAlgo()), numberFields: AnyView(Text("")), solutionSections: [SolutionSectionsData()])
+    CalculationPage<EuclidAlgo>(pageTitle: "Euclid Algo", newCalculation: .constant(EuclidAlgo()), numberFields: AnyView(Text("")), minimumSavedItemCellSize: 200)
 }

@@ -1,5 +1,5 @@
 //
-//  EquivalenceClassView.swift
+//  EquivalenceClassPage.swift
 //  Algo Crypto
 //
 //  Created by Thomas Le Bonnec on 15/11/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EquivalenceClassView: View {
+struct EquivalenceClassPage: View {
     
     /* ----- Propriétés ----- */
     
@@ -21,7 +21,8 @@ struct EquivalenceClassView: View {
         CalculationPage<EquivalenceClass>(
             pageTitle: "Equivalence Class",
             newCalculation: $newEquivalence,
-            numberFields: AnyView(numberFields)
+            numberFields: AnyView(numberFields),
+            minimumSavedItemCellSize: 400
         )
     }
     
@@ -43,5 +44,5 @@ struct EquivalenceClassView: View {
 
 
 #Preview {
-    EquivalenceClassView()
+    EquivalenceClassPage()
 }

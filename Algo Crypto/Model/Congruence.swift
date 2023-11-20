@@ -11,19 +11,19 @@ import SwiftData
 
 @Model
 final class Congruence: CalculationProtocol {
-    var x: Int?
     var a: Int?
-    var y: Int?
+    var p: Int?
     var b: Int?
+    var q: Int?
     var n: Int?
     private(set) var result: Int
     
     
     init() {
-        self.x = nil
         self.a = nil
-        self.y = nil
+        self.p = nil
         self.b = nil
+        self.q = nil
         self.n = nil
         self.result = 0
     }
@@ -32,8 +32,8 @@ final class Congruence: CalculationProtocol {
     func calculate() {
         guard inputValidity() else { return }
         
-        let moduloA = Modulo(x: x!, a: a!, n: n!)
-        let moduloB = Modulo(x: y!, a: b!, n: n!)
+        let moduloA = Modulo(x: a!, a: p!, n: n!)
+        let moduloB = Modulo(x: b!, a: q!, n: n!)
         moduloA.calculate()
         moduloB.calculate()
         
@@ -63,15 +63,15 @@ final class Congruence: CalculationProtocol {
     
     
     func inputValidity() -> Bool {
-        guard x != nil && a != nil && y != nil && b != nil && n != nil else { return false }
-        guard a! > 0 && b! > 0 && n! > 1 else { return false }
+        guard a != nil && p != nil && b != nil && q != nil && n != nil else { return false }
+        guard p! > 0 && q! > 0 && n! > 1 else { return false }
         return true
     }
     
     
     
     func displayLabel() -> String {
-        return "$\(x ?? 0)^{\(a ?? 0)} \\times x ≡ \(y ?? 0)^{\(b ?? 0)}[\(n ?? 0)]$"
+        return "$\(a ?? 0)^{\(p ?? 0)} \\times x ≡ \(b ?? 0)^{\(q ?? 0)}[\(n ?? 0)]$"
     }
     
     func displayResult() -> String {
@@ -83,11 +83,15 @@ final class Congruence: CalculationProtocol {
         return "x = \(result)"
     }
     
-    func displayInfo() -> String {
-        return "\(x ?? 0)^\(a ?? 0) * x ≡ \(y ?? 0)^\(b ?? 0)[\(n ?? 0)]   ->   x = \(result)"
+    
+    func resetInputs() {
+        self.a = nil
+        self.p = nil
+        self.b = nil
+        self.q = nil
+        self.n = nil
+        self.result = 0
     }
-    
-    
 }
 
 

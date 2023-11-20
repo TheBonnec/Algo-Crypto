@@ -6,34 +6,29 @@
 //
 
 import SwiftUI
+import LaTeXSwiftUI
 
 
 struct SolutionSection: View {
     
     var label: String?
-    var solution: Int?
+    var solution: String?
     
      var body: some View {
-         HStack {
-             Spacer()
-             VStack(spacing: 8) {
-                 if label != nil {
-                     Text(label!)
-                         .foregroundStyle(Color.gray)
-                 }
-                 
-                 if solution != nil {
-                     Text("\(solution!)")
-                         .font(.title)
-                         .fontWeight(.bold)
-                 }
-             }
-             Spacer()
-         }
-         .padding()
-         .background(Color.cyan.opacity(0.15))
-         .cornerRadius(8)
-         .padding(.horizontal)
+         SolutionCell(content: AnyView(
+            VStack(spacing: 8) {
+                if label != nil {
+                    LaTeX(label!)
+                        .foregroundStyle(Color.gray)
+                }
+                
+                if solution != nil {
+                    LaTeX(solution!)
+                        .font(.title)
+                        .fontWeight(.bold)
+                }
+            }
+         ))
     }
 }
 

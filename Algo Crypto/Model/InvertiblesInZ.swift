@@ -1,5 +1,5 @@
 //
-//  InversesList.swift
+//  InvertiblesInZ.swift
 //  Algo Crypto
 //
 //  Created by Thomas Le Bonnec on 09/11/2023.
@@ -13,20 +13,17 @@ import SwiftData
 final class InvertiblesInZ: CalculationProtocol {
     
     var n: Int?
-    var list: [Int]
-    //private(set) var inverses: [Int]
+    private(set) var invertibles: [Int]
     
     
     init() {
         self.n = nil
-        self.list = []
-        //self.inverses = []
+        self.invertibles = []
     }
     
-    init(n: Int?, inversableElements: [Int]) {
+    init(n: Int?, invertibleElements: [Int]) {
         self.n = n
-        self.list = inversableElements
-        //self.inverses = inverses
+        self.invertibles = invertibleElements
     }
     
     
@@ -44,16 +41,7 @@ final class InvertiblesInZ: CalculationProtocol {
                 inversables.append(i)
             }
         }
-        /*
-        // Calcul des inverses
-        for iE in self.list {
-            let inv = InverseInZ(a: iE, n: n)
-            inv.calculate()
-            self.inverses.append(inv.inverse)
-        }
-         */
-        
-        self.list = inversables
+        self.invertibles = inversables
     }
     
     
@@ -75,7 +63,7 @@ final class InvertiblesInZ: CalculationProtocol {
         
         if n! >= 0 {
             var listString = ""
-            for e in self.list {
+            for e in self.invertibles {
                 listString.append("\(e), ")
             }
             if !listString.isEmpty {
@@ -91,17 +79,17 @@ final class InvertiblesInZ: CalculationProtocol {
     
     func resetInputs() {
         self.n = nil
-        self.list = []
+        self.invertibles = []
     }
     
     
-    func getInversesDict() -> [InverseTableObject] {
+    func getInversesList() -> [InverseTableObject] {
         var table: [InverseTableObject] = []
         
-        for e in self.list {
+        for e in self.invertibles {
             let inv = InverseInZ(a: e, n: n)
             inv.calculate()
-            table.append(InverseTableObject(inversable: "\(e)", inverse: "\(inv.inverse)"))
+            table.append(InverseTableObject(invertables: "\(e)", inverses: "\(inv.inverse)"))
         }
         
         return table
@@ -114,6 +102,6 @@ final class InvertiblesInZ: CalculationProtocol {
 
 struct InverseTableObject: Identifiable {
     let id = UUID()
-    let inversable: String
-    let inverse: String
+    let invertables: String
+    let inverses: String
 }

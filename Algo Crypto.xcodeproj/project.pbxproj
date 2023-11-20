@@ -8,6 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		E90FFB142AF1771F00E1DE47 /* Congruence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90FFB132AF1771F00E1DE47 /* Congruence.swift */; };
+		E91160052B0134D6002F1032 /* EuclidAlgoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91160042B0134D6002F1032 /* EuclidAlgoPage.swift */; };
+		E91160082B01559A002F1032 /* LaTeXSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E91160072B01559A002F1032 /* LaTeXSwiftUI */; };
+		E9438F8E2AFAC03000497480 /* PageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9438F8D2AFAC03000497480 /* PageInfo.swift */; };
+		E95C88242AFC1D1500B51A38 /* EquivalenceClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C88232AFC1D1500B51A38 /* EquivalenceClass.swift */; };
+		E95C88262AFC4CD000B51A38 /* AdditionInZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C88252AFC4CD000B51A38 /* AdditionInZ.swift */; };
+		E95C88282AFC525E00B51A38 /* MultiplicationInZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C88272AFC525E00B51A38 /* MultiplicationInZ.swift */; };
+		E95C882A2AFD60DB00B51A38 /* InvertiblesInZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C88292AFD60DB00B51A38 /* InvertiblesInZ.swift */; };
+		E95C882C2AFD7A2900B51A38 /* LinearEquationInZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C882B2AFD7A2900B51A38 /* LinearEquationInZ.swift */; };
+		E95C882E2AFD8AC600B51A38 /* InverseInZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95C882D2AFD8AC600B51A38 /* InverseInZ.swift */; };
+		E95E38492B06B3B1003DE8B1 /* RoundedBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95E38482B06B3B1003DE8B1 /* RoundedBorder.swift */; };
+		E98DF8C22B086683002174B2 /* ACNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98DF8C12B086683002174B2 /* ACNavigationView.swift */; };
+		E98DF8C82B0A90F7002174B2 /* SavedItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98DF8C72B0A90F7002174B2 /* SavedItemCell.swift */; };
+		E9972FEF2B03C716004A6553 /* ExtendedEuclidAlgoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9972FEE2B03C716004A6553 /* ExtendedEuclidAlgoPage.swift */; };
+		E9972FF12B03C8F6004A6553 /* SolutionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9972FF02B03C8F6004A6553 /* SolutionCell.swift */; };
+		E9972FF32B051950004A6553 /* ModuloPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9972FF22B051950004A6553 /* ModuloPage.swift */; };
+		E9972FF52B051A78004A6553 /* CongruencePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9972FF42B051A78004A6553 /* CongruencePage.swift */; };
+		E9972FF72B051B0D004A6553 /* EquivalenceClassPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9972FF62B051B0D004A6553 /* EquivalenceClassPage.swift */; };
+		E9972FF92B051B88004A6553 /* AdditionInZPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9972FF82B051B88004A6553 /* AdditionInZPage.swift */; };
 		E9CA112E2AF070F50077BBAC /* Algo_CryptoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA112D2AF070F50077BBAC /* Algo_CryptoApp.swift */; };
 		E9CA11302AF070F50077BBAC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA112F2AF070F50077BBAC /* ContentView.swift */; };
 		E9CA11342AF070F70077BBAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9CA11332AF070F70077BBAC /* Assets.xcassets */; };
@@ -21,17 +39,13 @@
 		E9CA11642AF072DA0077BBAC /* ACButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA11632AF072DA0077BBAC /* ACButton.swift */; };
 		E9CA11662AF073220077BBAC /* NumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA11652AF073220077BBAC /* NumberField.swift */; };
 		E9CA11682AF0736D0077BBAC /* SolutionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA11672AF0736D0077BBAC /* SolutionSection.swift */; };
-		E9CA116A2AF073890077BBAC /* EuclidAlgoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA11692AF073890077BBAC /* EuclidAlgoView.swift */; };
-		E9CA116C2AF073A90077BBAC /* ExtendedEuclidAlgoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA116B2AF073A90077BBAC /* ExtendedEuclidAlgoView.swift */; };
-		E9CB2E672AF199B40088679B /* CongruenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CB2E662AF199B40088679B /* CongruenceView.swift */; };
-		E9E3B3832AF08F49000B258B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3B3822AF08F49000B258B /* MainView.swift */; };
-		E9E3B3852AF08FF0000B258B /* PageStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3B3842AF08FF0000B258B /* PageStack.swift */; };
-		E9E3B3872AF09165000B258B /* PageNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3B3862AF09165000B258B /* PageNavigator.swift */; };
+		E9CE4DDC2B052FDB007FD6AB /* MultiplicationInZPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CE4DDB2B052FDB007FD6AB /* MultiplicationInZPage.swift */; };
+		E9CE4DDE2B05460D007FD6AB /* InvertiblesInZPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CE4DDD2B05460D007FD6AB /* InvertiblesInZPage.swift */; };
+		E9CE4DE02B054660007FD6AB /* LinearEquationInZPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CE4DDF2B054660007FD6AB /* LinearEquationInZPage.swift */; };
+		E9CE4DE22B054674007FD6AB /* InverseInZPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CE4DE12B054674007FD6AB /* InverseInZPage.swift */; };
 		E9E3B3892AF0B72E000B258B /* Modulo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3B3882AF0B72E000B258B /* Modulo.swift */; };
-		E9E3B38B2AF0C6D6000B258B /* ModuloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3B38A2AF0C6D6000B258B /* ModuloView.swift */; };
 		E9E3B38D2AF134DD000B258B /* CalculationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3B38C2AF134DD000B258B /* CalculationPage.swift */; };
 		E9E3B3902AF13722000B258B /* CalculationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3B38F2AF13722000B258B /* CalculationProtocol.swift */; };
-		E9E3B3952AF13DC9000B258B /* SolutionSectionsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E3B3942AF13DC9000B258B /* SolutionSectionsData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +67,23 @@
 
 /* Begin PBXFileReference section */
 		E90FFB132AF1771F00E1DE47 /* Congruence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Congruence.swift; sourceTree = "<group>"; };
+		E91160042B0134D6002F1032 /* EuclidAlgoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EuclidAlgoPage.swift; sourceTree = "<group>"; };
+		E9438F8D2AFAC03000497480 /* PageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageInfo.swift; sourceTree = "<group>"; };
+		E95C88232AFC1D1500B51A38 /* EquivalenceClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquivalenceClass.swift; sourceTree = "<group>"; };
+		E95C88252AFC4CD000B51A38 /* AdditionInZ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionInZ.swift; sourceTree = "<group>"; };
+		E95C88272AFC525E00B51A38 /* MultiplicationInZ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationInZ.swift; sourceTree = "<group>"; };
+		E95C88292AFD60DB00B51A38 /* InvertiblesInZ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertiblesInZ.swift; sourceTree = "<group>"; };
+		E95C882B2AFD7A2900B51A38 /* LinearEquationInZ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearEquationInZ.swift; sourceTree = "<group>"; };
+		E95C882D2AFD8AC600B51A38 /* InverseInZ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InverseInZ.swift; sourceTree = "<group>"; };
+		E95E38482B06B3B1003DE8B1 /* RoundedBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBorder.swift; sourceTree = "<group>"; };
+		E98DF8C12B086683002174B2 /* ACNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACNavigationView.swift; sourceTree = "<group>"; };
+		E98DF8C72B0A90F7002174B2 /* SavedItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedItemCell.swift; sourceTree = "<group>"; };
+		E9972FEE2B03C716004A6553 /* ExtendedEuclidAlgoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedEuclidAlgoPage.swift; sourceTree = "<group>"; };
+		E9972FF02B03C8F6004A6553 /* SolutionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionCell.swift; sourceTree = "<group>"; };
+		E9972FF22B051950004A6553 /* ModuloPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuloPage.swift; sourceTree = "<group>"; };
+		E9972FF42B051A78004A6553 /* CongruencePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongruencePage.swift; sourceTree = "<group>"; };
+		E9972FF62B051B0D004A6553 /* EquivalenceClassPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquivalenceClassPage.swift; sourceTree = "<group>"; };
+		E9972FF82B051B88004A6553 /* AdditionInZPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionInZPage.swift; sourceTree = "<group>"; };
 		E9CA112A2AF070F50077BBAC /* Algo Crypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Algo Crypto.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9CA112D2AF070F50077BBAC /* Algo_CryptoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algo_CryptoApp.swift; sourceTree = "<group>"; };
 		E9CA112F2AF070F50077BBAC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -70,17 +101,13 @@
 		E9CA11632AF072DA0077BBAC /* ACButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACButton.swift; sourceTree = "<group>"; };
 		E9CA11652AF073220077BBAC /* NumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberField.swift; sourceTree = "<group>"; };
 		E9CA11672AF0736D0077BBAC /* SolutionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionSection.swift; sourceTree = "<group>"; };
-		E9CA11692AF073890077BBAC /* EuclidAlgoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EuclidAlgoView.swift; sourceTree = "<group>"; };
-		E9CA116B2AF073A90077BBAC /* ExtendedEuclidAlgoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedEuclidAlgoView.swift; sourceTree = "<group>"; };
-		E9CB2E662AF199B40088679B /* CongruenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongruenceView.swift; sourceTree = "<group>"; };
-		E9E3B3822AF08F49000B258B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		E9E3B3842AF08FF0000B258B /* PageStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageStack.swift; sourceTree = "<group>"; };
-		E9E3B3862AF09165000B258B /* PageNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageNavigator.swift; sourceTree = "<group>"; };
+		E9CE4DDB2B052FDB007FD6AB /* MultiplicationInZPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationInZPage.swift; sourceTree = "<group>"; };
+		E9CE4DDD2B05460D007FD6AB /* InvertiblesInZPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertiblesInZPage.swift; sourceTree = "<group>"; };
+		E9CE4DDF2B054660007FD6AB /* LinearEquationInZPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearEquationInZPage.swift; sourceTree = "<group>"; };
+		E9CE4DE12B054674007FD6AB /* InverseInZPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InverseInZPage.swift; sourceTree = "<group>"; };
 		E9E3B3882AF0B72E000B258B /* Modulo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modulo.swift; sourceTree = "<group>"; };
-		E9E3B38A2AF0C6D6000B258B /* ModuloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuloView.swift; sourceTree = "<group>"; };
 		E9E3B38C2AF134DD000B258B /* CalculationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationPage.swift; sourceTree = "<group>"; };
 		E9E3B38F2AF13722000B258B /* CalculationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationProtocol.swift; sourceTree = "<group>"; };
-		E9E3B3942AF13DC9000B258B /* SolutionSectionsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionSectionsData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E91160082B01559A002F1032 /* LaTeXSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +136,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E91160032B0134B9002F1032 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				E91160042B0134D6002F1032 /* EuclidAlgoPage.swift */,
+				E9972FEE2B03C716004A6553 /* ExtendedEuclidAlgoPage.swift */,
+				E9972FF22B051950004A6553 /* ModuloPage.swift */,
+				E9972FF42B051A78004A6553 /* CongruencePage.swift */,
+				E9972FF62B051B0D004A6553 /* EquivalenceClassPage.swift */,
+				E9972FF82B051B88004A6553 /* AdditionInZPage.swift */,
+				E9CE4DDB2B052FDB007FD6AB /* MultiplicationInZPage.swift */,
+				E9CE4DDD2B05460D007FD6AB /* InvertiblesInZPage.swift */,
+				E9CE4DDF2B054660007FD6AB /* LinearEquationInZPage.swift */,
+				E9CE4DE12B054674007FD6AB /* InverseInZPage.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
 		E9CA11212AF070F50077BBAC = {
 			isa = PBXGroup;
 			children = (
@@ -132,9 +177,9 @@
 			isa = PBXGroup;
 			children = (
 				E9CA112D2AF070F50077BBAC /* Algo_CryptoApp.swift */,
-				E9CA112F2AF070F50077BBAC /* ContentView.swift */,
 				E9CA115F2AF072A20077BBAC /* View */,
-				E9CA115A2AF0724D0077BBAC /* Data */,
+				E9CA115A2AF0724D0077BBAC /* Model */,
+				E9E3B38E2AF1370F000B258B /* Protocols */,
 				E9CA11332AF070F70077BBAC /* Assets.xcassets */,
 				E9CA11382AF070F70077BBAC /* Algo_Crypto.entitlements */,
 				E9CA11352AF070F70077BBAC /* Preview Content */,
@@ -167,26 +212,29 @@
 			path = "Algo CryptoUITests";
 			sourceTree = "<group>";
 		};
-		E9CA115A2AF0724D0077BBAC /* Data */ = {
+		E9CA115A2AF0724D0077BBAC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E95C88252AFC4CD000B51A38 /* AdditionInZ.swift */,
+				E90FFB132AF1771F00E1DE47 /* Congruence.swift */,
+				E95C882B2AFD7A2900B51A38 /* LinearEquationInZ.swift */,
+				E95C88232AFC1D1500B51A38 /* EquivalenceClass.swift */,
 				E9CA115B2AF072580077BBAC /* EuclidAlgo.swift */,
 				E9CA115D2AF072730077BBAC /* ExtendedEuclidAlgo.swift */,
+				E95C882D2AFD8AC600B51A38 /* InverseInZ.swift */,
+				E95C88292AFD60DB00B51A38 /* InvertiblesInZ.swift */,
 				E9E3B3882AF0B72E000B258B /* Modulo.swift */,
-				E90FFB132AF1771F00E1DE47 /* Congruence.swift */,
-				E9E3B38E2AF1370F000B258B /* Protocols */,
+				E95C88272AFC525E00B51A38 /* MultiplicationInZ.swift */,
+				E9438F8D2AFAC03000497480 /* PageInfo.swift */,
 			);
-			path = Data;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E9CA115F2AF072A20077BBAC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E9E3B3822AF08F49000B258B /* MainView.swift */,
-				E9CA11692AF073890077BBAC /* EuclidAlgoView.swift */,
-				E9CA116B2AF073A90077BBAC /* ExtendedEuclidAlgoView.swift */,
-				E9E3B38A2AF0C6D6000B258B /* ModuloView.swift */,
-				E9CB2E662AF199B40088679B /* CongruenceView.swift */,
+				E9CA112F2AF070F50077BBAC /* ContentView.swift */,
+				E91160032B0134B9002F1032 /* Pages */,
 				E9CA11602AF072A80077BBAC /* Composants */,
 			);
 			path = View;
@@ -195,13 +243,15 @@
 		E9CA11602AF072A80077BBAC /* Composants */ = {
 			isa = PBXGroup;
 			children = (
-				E9E3B3862AF09165000B258B /* PageNavigator.swift */,
-				E9E3B3842AF08FF0000B258B /* PageStack.swift */,
-				E9CA11672AF0736D0077BBAC /* SolutionSection.swift */,
-				E9CA11652AF073220077BBAC /* NumberField.swift */,
 				E9CA11632AF072DA0077BBAC /* ACButton.swift */,
+				E98DF8C12B086683002174B2 /* ACNavigationView.swift */,
+				E9E3B38C2AF134DD000B258B /* CalculationPage.swift */,
 				E9CA11612AF072BA0077BBAC /* EdgeBorder.swift */,
-				E9E3B3912AF13BB4000B258B /* CalculationPage */,
+				E9CA11652AF073220077BBAC /* NumberField.swift */,
+				E95E38482B06B3B1003DE8B1 /* RoundedBorder.swift */,
+				E98DF8C72B0A90F7002174B2 /* SavedItemCell.swift */,
+				E9972FF02B03C8F6004A6553 /* SolutionCell.swift */,
+				E9CA11672AF0736D0077BBAC /* SolutionSection.swift */,
 			);
 			path = Composants;
 			sourceTree = "<group>";
@@ -212,15 +262,6 @@
 				E9E3B38F2AF13722000B258B /* CalculationProtocol.swift */,
 			);
 			path = Protocols;
-			sourceTree = "<group>";
-		};
-		E9E3B3912AF13BB4000B258B /* CalculationPage */ = {
-			isa = PBXGroup;
-			children = (
-				E9E3B38C2AF134DD000B258B /* CalculationPage.swift */,
-				E9E3B3942AF13DC9000B258B /* SolutionSectionsData.swift */,
-			);
-			path = CalculationPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +280,9 @@
 			dependencies = (
 			);
 			name = "Algo Crypto";
+			packageProductDependencies = (
+				E91160072B01559A002F1032 /* LaTeXSwiftUI */,
+			);
 			productName = "Algo Crypto";
 			productReference = E9CA112A2AF070F50077BBAC /* Algo Crypto.app */;
 			productType = "com.apple.product-type.application";
@@ -311,6 +355,9 @@
 				Base,
 			);
 			mainGroup = E9CA11212AF070F50077BBAC;
+			packageReferences = (
+				E91160062B01559A002F1032 /* XCRemoteSwiftPackageReference "LaTeXSwiftUI" */,
+			);
 			productRefGroup = E9CA112B2AF070F50077BBAC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -353,26 +400,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E98DF8C22B086683002174B2 /* ACNavigationView.swift in Sources */,
+				E9438F8E2AFAC03000497480 /* PageInfo.swift in Sources */,
+				E9CE4DDC2B052FDB007FD6AB /* MultiplicationInZPage.swift in Sources */,
 				E9CA115C2AF072580077BBAC /* EuclidAlgo.swift in Sources */,
+				E9972FF72B051B0D004A6553 /* EquivalenceClassPage.swift in Sources */,
+				E95C88262AFC4CD000B51A38 /* AdditionInZ.swift in Sources */,
+				E98DF8C82B0A90F7002174B2 /* SavedItemCell.swift in Sources */,
 				E9E3B3902AF13722000B258B /* CalculationProtocol.swift in Sources */,
-				E9E3B3852AF08FF0000B258B /* PageStack.swift in Sources */,
-				E9CB2E672AF199B40088679B /* CongruenceView.swift in Sources */,
+				E9CE4DDE2B05460D007FD6AB /* InvertiblesInZPage.swift in Sources */,
+				E95C882A2AFD60DB00B51A38 /* InvertiblesInZ.swift in Sources */,
+				E95C882E2AFD8AC600B51A38 /* InverseInZ.swift in Sources */,
+				E9972FF32B051950004A6553 /* ModuloPage.swift in Sources */,
 				E9CA11682AF0736D0077BBAC /* SolutionSection.swift in Sources */,
 				E9CA11662AF073220077BBAC /* NumberField.swift in Sources */,
+				E95C88242AFC1D1500B51A38 /* EquivalenceClass.swift in Sources */,
+				E95C88282AFC525E00B51A38 /* MultiplicationInZ.swift in Sources */,
+				E9972FF52B051A78004A6553 /* CongruencePage.swift in Sources */,
+				E95E38492B06B3B1003DE8B1 /* RoundedBorder.swift in Sources */,
 				E9CA11302AF070F50077BBAC /* ContentView.swift in Sources */,
-				E9E3B38B2AF0C6D6000B258B /* ModuloView.swift in Sources */,
 				E9E3B3892AF0B72E000B258B /* Modulo.swift in Sources */,
 				E9CA11642AF072DA0077BBAC /* ACButton.swift in Sources */,
+				E95C882C2AFD7A2900B51A38 /* LinearEquationInZ.swift in Sources */,
+				E9CE4DE02B054660007FD6AB /* LinearEquationInZPage.swift in Sources */,
+				E9972FEF2B03C716004A6553 /* ExtendedEuclidAlgoPage.swift in Sources */,
 				E9CA112E2AF070F50077BBAC /* Algo_CryptoApp.swift in Sources */,
-				E9CA116C2AF073A90077BBAC /* ExtendedEuclidAlgoView.swift in Sources */,
+				E91160052B0134D6002F1032 /* EuclidAlgoPage.swift in Sources */,
+				E9CE4DE22B054674007FD6AB /* InverseInZPage.swift in Sources */,
 				E90FFB142AF1771F00E1DE47 /* Congruence.swift in Sources */,
-				E9E3B3832AF08F49000B258B /* MainView.swift in Sources */,
-				E9E3B3872AF09165000B258B /* PageNavigator.swift in Sources */,
+				E9972FF12B03C8F6004A6553 /* SolutionCell.swift in Sources */,
+				E9972FF92B051B88004A6553 /* AdditionInZPage.swift in Sources */,
 				E9E3B38D2AF134DD000B258B /* CalculationPage.swift in Sources */,
-				E9E3B3952AF13DC9000B258B /* SolutionSectionsData.swift in Sources */,
 				E9CA11622AF072BA0077BBAC /* EdgeBorder.swift in Sources */,
 				E9CA115E2AF072730077BBAC /* ExtendedEuclidAlgo.swift in Sources */,
-				E9CA116A2AF073890077BBAC /* EuclidAlgoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,7 +611,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = "1.0 alpha 1";
+				MARKETING_VERSION = "1.0 Beta 3";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thomaslebonnec.Algo-Crypto";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -585,7 +645,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = "1.0 alpha 1";
+				MARKETING_VERSION = "1.0 Beta 3";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thomaslebonnec.Algo-Crypto";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -709,6 +769,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E91160062B01559A002F1032 /* XCRemoteSwiftPackageReference "LaTeXSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/grdleo/LaTeXSwiftUI";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E91160072B01559A002F1032 /* LaTeXSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E91160062B01559A002F1032 /* XCRemoteSwiftPackageReference "LaTeXSwiftUI" */;
+			productName = LaTeXSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E9CA11222AF070F50077BBAC /* Project object */;
 }

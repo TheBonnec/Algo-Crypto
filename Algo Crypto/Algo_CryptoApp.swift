@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 
+
 @main
 struct Algo_CryptoApp: App {
     var sharedModelContainer: ModelContainer = {
@@ -15,12 +16,17 @@ struct Algo_CryptoApp: App {
             EuclidAlgo.self,
             ExtendedEuclidAlgo.self,
             Modulo.self,
-            Congruence.self
+            Congruence.self,
+            EquivalenceClass.self,
+            AdditionInZ.self,
+            MultiplicationInZ.self,
+            InvertiblesInZ.self,
+            LinearEquationInZ.self,
+            InverseInZ.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
             
         do {
-            print(schema, modelConfiguration)
             return try ModelContainer(for: schema, configurations: modelConfiguration)
         } catch {
             fatalError("Could not create ModelContainer: \(error)")
@@ -34,21 +40,31 @@ struct Algo_CryptoApp: App {
                 .onAppear(perform: {
                     hideTitleBarOnCatalyst()
                 })
-                .padding()
+                //.padding()
         }
         .modelContainer(sharedModelContainer)
-        .defaultSize(CGSize(width: 720, height: 860))
+        .defaultSize(CGSize(width: 1220, height: 860))
+        .commands {
+            CommandMenu("Mettre à Jour") {
+                Button(action: {
+                    if let url = URL(string: "https://github.com/TheBonnec/Algo-Crypto/releases") {
+                        UIApplication.shared.open(url)
+                    }
+                }, label: {
+                    Text("Dernière version sur GitHub")
+                })
+            }
+        }
     }
     
     func hideTitleBarOnCatalyst() {
         #if targetEnvironment(macCatalyst)
-        //(UIApplication.shared.connectedScenes.first as? UIWindowScene)?.titlebar?.titleVisibility = .hidden
+        (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.titlebar?.titleVisibility = .hidden
         //(UIApplication.shared.connectedScenes.first as? UIWindowScene)?.titlebar?.separatorStyle = .none
         
-        let toolbar = NSToolbar()
+        //let toolbar = NSToolbar()
         
-        
-        (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.titlebar?.toolbar = .some(toolbar)
+        //(UIApplication.shared.connectedScenes.first as? UIWindowScene)?.titlebar?.toolbar = .some(toolbar)
         #endif
     }
 }

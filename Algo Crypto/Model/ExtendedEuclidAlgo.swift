@@ -73,10 +73,16 @@ final class ExtendedEuclidAlgo: CalculationProtocol {
     
     func displayResult() -> String {
         guard inputValidity() else { return "Input Error" }
-        return "\(r!)"
+        return "\(r ?? 0)"
     }
     
-    func displayInfo() -> String {
-        return "a = \(a ?? 0)   b = \(b ?? 0)\nu = \(u)   v = \(v)   r = \(r ?? 0)   q = \(q ?? 0)"
+    
+    func resetInputs() {
+        self.a = nil
+        self.b = nil
+        self.u = 1
+        self.v = 0
+        self.r = nil
+        self.q = nil
     }
 }
