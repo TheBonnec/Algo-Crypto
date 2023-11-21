@@ -83,7 +83,7 @@ struct ContentView: View {
     
     func cellBackground(pageInfo: PageInfo<AnyView>) -> Color? {
         if self.selectedPage.page == pageInfo.page {
-            return Color.elémentSecondaire
+            return Color.elémentSecondaire
         }
         return nil
     }

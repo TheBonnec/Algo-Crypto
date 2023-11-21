@@ -32,7 +32,7 @@ struct SavedItemCell: View {
             Spacer()
         }
         .padding()
-        .background(Color.elémentTertiaire)
+        .background(Color.elémentTertiaire)
         .cornerRadius(8)
     }
 }

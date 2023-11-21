@@ -6,21 +6,35 @@
 //
 
 import SwiftUI
+import SwiftData
+
 
 struct ExtendedEuclidAlgoPage: View {
     
     /* ----- Propriétés ----- */
     
-    @State var newExtendedEuclidAlgo = ExtendedEuclidAlgo()
+    @Environment(\.modelContext) private var modelContext
+    @Query var saves: [ExtendedEuclidAlgo]
+    @State var newExtendedEuclidAlgo = ExtendedEuclidAlgoVM()
+    var savesVM: [ExtendedEuclidAlgoVM]
     
+    
+    init() {
+        self.savesVM = []
+        for save in self.saves {
+            let newSaveVM = ExtendedEuclidAlgoVM(model: save)
+            self.savesVM.append(newSaveVM)
+        }
+    }
     
     
     /* ----- Vue ----- */
     
     var body: some View {
-        CalculationPage<ExtendedEuclidAlgo>(
-            pageTitle: "Extended Euclidean Algorithm",
-            newCalculation: $newExtendedEuclidAlgo,
+        CalculationPage<ExtendedEuclidAlgoVM>(
+            pageTitle: "Extended Euclidean Algorithm", 
+            saves: savesVM,
+            newCalculation: newExtendedEuclidAlgo,
             numberFields: AnyView(numberFields),
             customSolutionCells: [SolutionCell(content: AnyView(customSolutionCell))],
             minimumSavedItemCellSize: 150
@@ -30,18 +44,14 @@ struct ExtendedEuclidAlgoPage: View {
     
     var numberFields: some View {
         HStack(spacing: 0) {
-            NumberField(label: "a", placeholder: "0", input: $newExtendedEuclidAlgo.a, onChangeAction: {
-                newExtendedEuclidAlgo.calculate()
-            })
-            NumberField(label: "b", placeholder: "0", input: $newExtendedEuclidAlgo.b, onChangeAction: {
-                newExtendedEuclidAlgo.calculate()
-            })
+            NumberField(label: "a", placeholder: "0", input: $newExtendedEuclidAlgo.a)
+            NumberField(label: "b", placeholder: "0", input: $newExtendedEuclidAlgo.b)
         }
     }
     
     
     var customSolutionCell: some View {
-        Text("u\t\(newExtendedEuclidAlgo.u)\nv\t\(newExtendedEuclidAlgo.v)\nr\t\(newExtendedEuclidAlgo.r ?? 0)\nq\t\(newExtendedEuclidAlgo.q ?? 0)")
+        Text("u\t\(newExtendedEuclidAlgo.result.u)\nv\t\(newExtendedEuclidAlgo.result.v)\nr\t\(newExtendedEuclidAlgo.result.r ?? 0)\nq\t\(newExtendedEuclidAlgo.result.q ?? 0)")
             .font(.title)
             .fontWeight(.bold)
     }

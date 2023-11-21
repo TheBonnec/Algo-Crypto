@@ -20,7 +20,7 @@ struct SolutionCell: Identifiable, View {
             Spacer()
         }
         .padding()
-        .background(Color.elémentSecondaire)
+        .background(Color.elémentSecondaire)
         .cornerRadius(8)
         .padding(.horizontal)
     }

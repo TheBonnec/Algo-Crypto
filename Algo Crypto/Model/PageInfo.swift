@@ -10,7 +10,7 @@ import SwiftUI
 
 
 enum Page: String {
-    case euclidAlgo, extendedEuclidAlgo, modulo, congruence, equivalenceClass, additionInZ, multiplicationInZ, invertiblesInZ, linearEquationInZ, inverseInZ
+    case euclidAlgo, extendedEuclidAlgo
 }
 
 
@@ -56,15 +56,7 @@ class Pages {
         self.pageGroups = [
             PageGroup(groupName: "Chapitre 1", pages: [
                 defaultPage,
-                PageInfo(page: .extendedEuclidAlgo, pageName: "Extended Euclidean Algorithm") { AnyView(ExtendedEuclidAlgoPage()) },
-                PageInfo(page: .modulo, pageName: "Modulo") { AnyView(ModuloPage()) },
-                PageInfo(page: .congruence, pageName: "Congruence") { AnyView(CongruencePage()) },
-                PageInfo(page: .equivalenceClass, pageName: "Equivalence Class") { AnyView(EquivalenceClassPage()) },
-                PageInfo(page: .additionInZ, pageName: "Addition In Z/nZ") { AnyView(AdditionInZPage()) },
-                PageInfo(page: .multiplicationInZ, pageName: "Multiplication In Z/nZ") { AnyView(MultiplicationInZPage()) },
-                PageInfo(page: .invertiblesInZ, pageName: "Invertible Elements In Z/nZ") { AnyView(InvertiblesInZPage()) },
-                PageInfo(page: .linearEquationInZ, pageName: "Linear Equation in Z/nZ") { AnyView(LinearEquationInZPage()) },
-                PageInfo(page: .inverseInZ, pageName: "Inverse In Z/nZ") { AnyView(InverseInZPage()) }
+                PageInfo(page: .extendedEuclidAlgo, pageName: "Extended Euclidean Algorithm") { AnyView(ExtendedEuclidAlgoPage()) }
             ])
         ]
     }

@@ -13,7 +13,6 @@ struct NumberField: View {
     var label: String?
     var placeholder: String
     @Binding var input: Int?
-    var onChangeAction: () -> Void
     
     @FocusState var focused: Bool
     
@@ -26,9 +25,6 @@ struct NumberField: View {
             }
             
             TextField("\(placeholder)", value: $input, format: .number)
-                .onChange(of: self.input) { oldValue, newValue in
-                    onChangeAction()
-                }
                 .focused($focused)
                 .font(.title2)
         }

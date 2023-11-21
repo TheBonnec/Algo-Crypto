@@ -11,15 +11,15 @@ import SwiftData
 import LaTeXSwiftUI
 
 
-struct CalculationPage<U: CalculationProtocol>: View {
+struct CalculationPage<U: CalculationVMProtocol>: View {
     
     /* ----- Propriétés ----- */
     
     @Environment(\.modelContext) private var modelContext
-    @Query var saves: [U]
     
     var pageTitle: String
-    @Binding var newCalculation: U
+    var saves: [U]
+    @ObservedObject var newCalculation: U
     var numberFields: AnyView
     var customSolutionCells: [SolutionCell]? = nil
     let minimumSavedItemCellSize: CGFloat
@@ -105,19 +105,17 @@ struct CalculationPage<U: CalculationProtocol>: View {
     /* ----- Méthodes ----- */
     
     func save() {
-        guard newCalculation.inputValidity() else { return }
-        newCalculation.calculate()
-        modelContext.insert(newCalculation)
-        newCalculation = U()
+        self.newCalculation.saveModel(context: modelContext)
+        self.newCalculation.resetInputs()
     }
     
     func delete(save: U) {
-        modelContext.delete(save)
+        self.newCalculation.deleteModel(context: modelContext)
     }
     
     func deleteAll() {
         for save in saves {
-            modelContext.delete(save)
+            save.deleteModel(context: modelContext)
         }
     }
 }
@@ -127,5 +125,5 @@ struct CalculationPage<U: CalculationProtocol>: View {
 
 
 #Preview {
-    CalculationPage<EuclidAlgo>(pageTitle: "Euclid Algo", newCalculation: .constant(EuclidAlgo()), numberFields: AnyView(Text("")), minimumSavedItemCellSize: 200)
+    CalculationPage<EuclidAlgoVM>(pageTitle: "Euclid Algo", saves: [EuclidAlgoVM()], newCalculation: EuclidAlgoVM(), numberFields: AnyView(Text("")), minimumSavedItemCellSize: 200)
 }

@@ -14,15 +14,7 @@ struct Algo_CryptoApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             EuclidAlgo.self,
-            ExtendedEuclidAlgo.self,
-            Modulo.self,
-            Congruence.self,
-            EquivalenceClass.self,
-            AdditionInZ.self,
-            MultiplicationInZ.self,
-            InvertiblesInZ.self,
-            LinearEquationInZ.self,
-            InverseInZ.self
+            ExtendedEuclidAlgo.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
             
