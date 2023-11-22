@@ -1,6 +1,9 @@
 # Algo-Crypto
 
-###### Application macOS Sonoma pour résoudre les opérations de Math Pour Cryptographie.
+![Static Badge](https://img.shields.io/badge/version-1.0-blue)
+
+
+> Application macOS Sonoma pour résoudre les opérations de Math Pour Cryptographie.
 
 
 ## Fonctionnalités
