@@ -25,7 +25,7 @@
 
 1. Téléchargez la [dernière version](https://github.com/TheBonnec/Algo-Crypto/releases/tag/v1.0)
 2. Ouvrez le fichier
-3. Déplacer l'app dans le dossier Applications
+3. Déplacez l'app dans le dossier Applications
 
 
 ## Windows
