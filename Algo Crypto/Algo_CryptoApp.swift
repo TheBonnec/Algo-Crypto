@@ -45,13 +45,13 @@ struct Algo_CryptoApp: App {
         .modelContainer(sharedModelContainer)
         .defaultSize(CGSize(width: 1220, height: 860))
         .commands {
-            CommandMenu("Mettre à Jour") {
+            CommandMenu(LocalizedStringKey("Update")) {
                 Button(action: {
                     if let url = URL(string: "https://github.com/TheBonnec/Algo-Crypto/releases") {
                         UIApplication.shared.open(url)
                     }
                 }, label: {
-                    Text("Dernière version sur GitHub")
+                    Text(LocalizedStringKey("LastGitHubVersion"))
                 })
             }
         }

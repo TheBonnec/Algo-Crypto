@@ -6,21 +6,29 @@
 //
 
 import SwiftUI
+import SwiftData
+
 
 struct EquivalenceClassPage: View {
     
     /* ----- Propriétés ----- */
     
-    @State var newEquivalence = EquivalenceClass()
+    @Environment(\.modelContext) private var modelContext
+    @Query var saves: [EquivalenceClass]
+    @StateObject var newEquivalence = EquivalenceClassVM()
+    var savesVM: [EquivalenceClassVM] {
+        updateSavesVM()
+    }
     
     
     
     /* ----- Vue ----- */
     
     var body: some View {
-        CalculationPage<EquivalenceClass>(
-            pageTitle: "Equivalence Class",
-            newCalculation: $newEquivalence,
+        CalculationPage<EquivalenceClassVM>(
+            pageTitle: Pages().equivalenceClass.pageName,
+            saves: savesVM,
+            newCalculation: newEquivalence,
             numberFields: AnyView(numberFields),
             minimumSavedItemCellSize: 400
         )
@@ -29,13 +37,22 @@ struct EquivalenceClassPage: View {
     
     var numberFields: some View {
         HStack(spacing: 0) {
-            NumberField(label: "a", placeholder: "0", input: $newEquivalence.a) {
-                newEquivalence.calculate()
-            }
-            NumberField(label: "n", placeholder: "0", input: $newEquivalence.n) {
-                newEquivalence.calculate()
-            }
+            NumberField(label: "a", placeholder: "0", input: $newEquivalence.a)
+            NumberField(label: "n", placeholder: "0", input: $newEquivalence.n)
         }
+    }
+    
+    
+    
+    /* ----- Méthodes ----- */
+    
+    func updateSavesVM() -> [EquivalenceClassVM] {
+        var s: [EquivalenceClassVM] = []
+        for save in self.saves {
+            let newSaveVM = EquivalenceClassVM(model: save)
+            s.append(newSaveVM)
+        }
+        return s
     }
 }
 

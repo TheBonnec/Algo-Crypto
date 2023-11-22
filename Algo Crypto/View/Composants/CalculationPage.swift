@@ -11,15 +11,15 @@ import SwiftData
 import LaTeXSwiftUI
 
 
-struct CalculationPage<U: CalculationProtocol>: View {
+struct CalculationPage<U: CalculationVMProtocol>: View {
     
     /* ----- Propriétés ----- */
     
     @Environment(\.modelContext) private var modelContext
-    @Query var saves: [U]
     
-    var pageTitle: String
-    @Binding var newCalculation: U
+    var pageTitle: LocalizedStringKey
+    var saves: [U]
+    @ObservedObject var newCalculation: U
     var numberFields: AnyView
     var customSolutionCells: [SolutionCell]? = nil
     let minimumSavedItemCellSize: CGFloat
@@ -72,16 +72,16 @@ struct CalculationPage<U: CalculationProtocol>: View {
     
     var actionButtons: some View {
         HStack(spacing: 0) {
-            ACButton(label: "Réinitialiser et Sauvegarder") {
+            ACButton(label: "SaveAndReset") {
                 self.save()
             }
             
-            ACButton(label: "Réinitialiser", style: .secondaryDestructive) {
+            ACButton(label: "Reset", style: .secondaryDestructive) {
                 self.newCalculation.resetInputs()
             }
             
             // Bouton pour supprimer les solutions sauvegardés
-            ACButton(label: "Nettoyer", style: .primaryDestructive) {
+            ACButton(label: "Clean", style: .primaryDestructive) {
                 self.deleteAll()
             }
         }
@@ -91,9 +91,26 @@ struct CalculationPage<U: CalculationProtocol>: View {
     
     
     var savedItemsGrid: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: minimumSavedItemCellSize), spacing: 16)], spacing: 16) {
-            ForEach(saves) { save in
-                SavedItemCell(label: save.displayLabel(), solution: save.displayResult())
+        LazyVStack(alignment: .leading) {
+            Text(LocalizedStringKey("SavedCalculations"))
+                .font(.title)
+                .fontWeight(.bold)
+                .padding(.bottom, 16)
+            
+            if saves.count != 0 {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: minimumSavedItemCellSize), spacing: 16)], spacing: 16) {
+                    ForEach(saves) { save in
+                        SavedItemCell(label: save.displayLabel(), solution: save.displayResult())
+                    }
+                }
+            } else {
+                HStack {
+                    Spacer()
+                    Text(LocalizedStringKey("TheVoid"))
+                        .foregroundColor(.gray)
+                    Spacer()
+                }
+                .frame(height: 200)
             }
         }
         .padding(.top, 64)
@@ -102,22 +119,22 @@ struct CalculationPage<U: CalculationProtocol>: View {
     
     
     
+    
+    
     /* ----- Méthodes ----- */
     
     func save() {
-        guard newCalculation.inputValidity() else { return }
-        newCalculation.calculate()
-        modelContext.insert(newCalculation)
-        newCalculation = U()
+        guard self.newCalculation.saveModel(context: modelContext) else { return }
+        self.newCalculation.resetInputs()
     }
     
     func delete(save: U) {
-        modelContext.delete(save)
+        self.newCalculation.deleteModel(context: modelContext)
     }
     
     func deleteAll() {
         for save in saves {
-            modelContext.delete(save)
+            save.deleteModel(context: modelContext)
         }
     }
 }
@@ -127,5 +144,5 @@ struct CalculationPage<U: CalculationProtocol>: View {
 
 
 #Preview {
-    CalculationPage<EuclidAlgo>(pageTitle: "Euclid Algo", newCalculation: .constant(EuclidAlgo()), numberFields: AnyView(Text("")), minimumSavedItemCellSize: 200)
+    CalculationPage<EuclidAlgoVM>(pageTitle: "Euclid Algo", saves: [], newCalculation: EuclidAlgoVM(), numberFields: AnyView(Text("")), minimumSavedItemCellSize: 200)
 }

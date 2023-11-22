@@ -6,21 +6,29 @@
 //
 
 import SwiftUI
+import SwiftData
+
 
 struct LinearEquationInZPage: View {
     
     /* ----- Propriétés ----- */
     
-    @State var newLinearEquation = LinearEquationInZ()
+    @Environment(\.modelContext) private var modelContext
+    @Query var saves: [LinearEquationInZ]
+    @StateObject var newLinearEquation = LinearEquationInZVM()
+    var savesVM: [LinearEquationInZVM] {
+        updateSavesVM()
+    }
     
     
     
     /* ----- Vue ----- */
     
     var body: some View {
-        CalculationPage<LinearEquationInZ>(
-            pageTitle: "Linear Equation in Z/nZ",
-            newCalculation: $newLinearEquation,
+        CalculationPage<LinearEquationInZVM>(
+            pageTitle: Pages().linearEquationInZ.pageName,
+            saves: savesVM,
+            newCalculation: newLinearEquation,
             numberFields: AnyView(numberFields),
             minimumSavedItemCellSize: 400
         )
@@ -29,16 +37,23 @@ struct LinearEquationInZPage: View {
     
     var numberFields: some View {
         HStack(spacing: 0) {
-            NumberField(label: "a", placeholder: "0", input: $newLinearEquation.a) {
-                newLinearEquation.calculate()
-            }
-            NumberField(label: "b", placeholder: "0", input: $newLinearEquation.b) {
-                newLinearEquation.calculate()
-            }
-            NumberField(label: "n", placeholder: "0", input: $newLinearEquation.n) {
-                newLinearEquation.calculate()
-            }
+            NumberField(label: "a", placeholder: "0", input: $newLinearEquation.a)
+            NumberField(label: "b", placeholder: "0", input: $newLinearEquation.b)
+            NumberField(label: "n", placeholder: "0", input: $newLinearEquation.n)
         }
+    }
+    
+    
+    
+    /* ----- Méthodes ----- */
+    
+    func updateSavesVM() -> [LinearEquationInZVM] {
+        var s: [LinearEquationInZVM] = []
+        for save in self.saves {
+            let newSaveVM = LinearEquationInZVM(model: save)
+            s.append(newSaveVM)
+        }
+        return s
     }
 }
 

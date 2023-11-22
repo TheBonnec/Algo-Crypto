@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E90D16BF2B0D51B3003996E6 /* CalculationVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D16BE2B0D51B3003996E6 /* CalculationVMProtocol.swift */; };
+		E90D16C22B0D5212003996E6 /* EuclidAlgoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D16C12B0D5212003996E6 /* EuclidAlgoVM.swift */; };
+		E90D16C42B0D552F003996E6 /* ExtendedEuclidAlgoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D16C32B0D552F003996E6 /* ExtendedEuclidAlgoVM.swift */; };
+		E90D16C62B0D5ABC003996E6 /* ModuloVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D16C52B0D5ABC003996E6 /* ModuloVM.swift */; };
+		E90D16C82B0D5DB0003996E6 /* CongruenceVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D16C72B0D5DB0003996E6 /* CongruenceVM.swift */; };
+		E90D16CB2B0D6264003996E6 /* Power.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D16CA2B0D6264003996E6 /* Power.swift */; };
+		E90D16CD2B0D6402003996E6 /* EquivalenceClassVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D16CC2B0D6402003996E6 /* EquivalenceClassVM.swift */; };
+		E90D16CF2B0D6662003996E6 /* AdditionInZVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D16CE2B0D6662003996E6 /* AdditionInZVM.swift */; };
+		E90D16D12B0D67F5003996E6 /* MultiplicationInZVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D16D02B0D67F5003996E6 /* MultiplicationInZVM.swift */; };
+		E90D16D32B0D690E003996E6 /* InvertiblesInZVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D16D22B0D690E003996E6 /* InvertiblesInZVM.swift */; };
+		E90D16D52B0D6C6E003996E6 /* LinearEquationInZVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D16D42B0D6C6E003996E6 /* LinearEquationInZVM.swift */; };
+		E90D16D72B0D80F0003996E6 /* InverseInZVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D16D62B0D80F0003996E6 /* InverseInZVM.swift */; };
+		E90D16DB2B0E41F8003996E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E90D16DD2B0E41F8003996E6 /* Localizable.strings */; };
+		E90D16E02B0E55CF003996E6 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90D16DF2B0E55CF003996E6 /* Localized.swift */; };
 		E90FFB142AF1771F00E1DE47 /* Congruence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90FFB132AF1771F00E1DE47 /* Congruence.swift */; };
 		E91160052B0134D6002F1032 /* EuclidAlgoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91160042B0134D6002F1032 /* EuclidAlgoPage.swift */; };
 		E91160082B01559A002F1032 /* LaTeXSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E91160072B01559A002F1032 /* LaTeXSwiftUI */; };
@@ -66,6 +80,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E90D16BE2B0D51B3003996E6 /* CalculationVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationVMProtocol.swift; sourceTree = "<group>"; };
+		E90D16C12B0D5212003996E6 /* EuclidAlgoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EuclidAlgoVM.swift; sourceTree = "<group>"; };
+		E90D16C32B0D552F003996E6 /* ExtendedEuclidAlgoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedEuclidAlgoVM.swift; sourceTree = "<group>"; };
+		E90D16C52B0D5ABC003996E6 /* ModuloVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuloVM.swift; sourceTree = "<group>"; };
+		E90D16C72B0D5DB0003996E6 /* CongruenceVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongruenceVM.swift; sourceTree = "<group>"; };
+		E90D16CA2B0D6264003996E6 /* Power.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Power.swift; sourceTree = "<group>"; };
+		E90D16CC2B0D6402003996E6 /* EquivalenceClassVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquivalenceClassVM.swift; sourceTree = "<group>"; };
+		E90D16CE2B0D6662003996E6 /* AdditionInZVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionInZVM.swift; sourceTree = "<group>"; };
+		E90D16D02B0D67F5003996E6 /* MultiplicationInZVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationInZVM.swift; sourceTree = "<group>"; };
+		E90D16D22B0D690E003996E6 /* InvertiblesInZVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertiblesInZVM.swift; sourceTree = "<group>"; };
+		E90D16D42B0D6C6E003996E6 /* LinearEquationInZVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearEquationInZVM.swift; sourceTree = "<group>"; };
+		E90D16D62B0D80F0003996E6 /* InverseInZVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InverseInZVM.swift; sourceTree = "<group>"; };
+		E90D16DC2B0E41F8003996E6 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E90D16DE2B0E41FA003996E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E90D16DF2B0E55CF003996E6 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
 		E90FFB132AF1771F00E1DE47 /* Congruence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Congruence.swift; sourceTree = "<group>"; };
 		E91160042B0134D6002F1032 /* EuclidAlgoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EuclidAlgoPage.swift; sourceTree = "<group>"; };
 		E9438F8D2AFAC03000497480 /* PageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageInfo.swift; sourceTree = "<group>"; };
@@ -136,6 +165,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E90D16C02B0D51CD003996E6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E90D16C12B0D5212003996E6 /* EuclidAlgoVM.swift */,
+				E90D16C32B0D552F003996E6 /* ExtendedEuclidAlgoVM.swift */,
+				E90D16C52B0D5ABC003996E6 /* ModuloVM.swift */,
+				E90D16C72B0D5DB0003996E6 /* CongruenceVM.swift */,
+				E90D16CC2B0D6402003996E6 /* EquivalenceClassVM.swift */,
+				E90D16CE2B0D6662003996E6 /* AdditionInZVM.swift */,
+				E90D16D02B0D67F5003996E6 /* MultiplicationInZVM.swift */,
+				E90D16D22B0D690E003996E6 /* InvertiblesInZVM.swift */,
+				E90D16D42B0D6C6E003996E6 /* LinearEquationInZVM.swift */,
+				E90D16D62B0D80F0003996E6 /* InverseInZVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E90D16D82B0E418A003996E6 /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				E90D16DD2B0E41F8003996E6 /* Localizable.strings */,
+			);
+			path = Ressources;
+			sourceTree = "<group>";
+		};
 		E91160032B0134B9002F1032 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,8 +232,10 @@
 			children = (
 				E9CA112D2AF070F50077BBAC /* Algo_CryptoApp.swift */,
 				E9CA115F2AF072A20077BBAC /* View */,
+				E90D16C02B0D51CD003996E6 /* ViewModel */,
 				E9CA115A2AF0724D0077BBAC /* Model */,
 				E9E3B38E2AF1370F000B258B /* Protocols */,
+				E90D16D82B0E418A003996E6 /* Ressources */,
 				E9CA11332AF070F70077BBAC /* Assets.xcassets */,
 				E9CA11382AF070F70077BBAC /* Algo_Crypto.entitlements */,
 				E9CA11352AF070F70077BBAC /* Preview Content */,
@@ -247,7 +303,9 @@
 				E98DF8C12B086683002174B2 /* ACNavigationView.swift */,
 				E9E3B38C2AF134DD000B258B /* CalculationPage.swift */,
 				E9CA11612AF072BA0077BBAC /* EdgeBorder.swift */,
+				E90D16DF2B0E55CF003996E6 /* Localized.swift */,
 				E9CA11652AF073220077BBAC /* NumberField.swift */,
+				E90D16CA2B0D6264003996E6 /* Power.swift */,
 				E95E38482B06B3B1003DE8B1 /* RoundedBorder.swift */,
 				E98DF8C72B0A90F7002174B2 /* SavedItemCell.swift */,
 				E9972FF02B03C8F6004A6553 /* SolutionCell.swift */,
@@ -260,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				E9E3B38F2AF13722000B258B /* CalculationProtocol.swift */,
+				E90D16BE2B0D51B3003996E6 /* CalculationVMProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -348,11 +407,12 @@
 			};
 			buildConfigurationList = E9CA11252AF070F50077BBAC /* Build configuration list for PBXProject "Algo Crypto" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = fr;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = E9CA11212AF070F50077BBAC;
 			packageReferences = (
@@ -375,6 +435,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9CA11372AF070F70077BBAC /* Preview Assets.xcassets in Resources */,
+				E90D16DB2B0E41F8003996E6 /* Localizable.strings in Resources */,
 				E9CA11342AF070F70077BBAC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,35 +465,48 @@
 				E9438F8E2AFAC03000497480 /* PageInfo.swift in Sources */,
 				E9CE4DDC2B052FDB007FD6AB /* MultiplicationInZPage.swift in Sources */,
 				E9CA115C2AF072580077BBAC /* EuclidAlgo.swift in Sources */,
+				E90D16CB2B0D6264003996E6 /* Power.swift in Sources */,
 				E9972FF72B051B0D004A6553 /* EquivalenceClassPage.swift in Sources */,
+				E90D16C82B0D5DB0003996E6 /* CongruenceVM.swift in Sources */,
 				E95C88262AFC4CD000B51A38 /* AdditionInZ.swift in Sources */,
+				E90D16D72B0D80F0003996E6 /* InverseInZVM.swift in Sources */,
 				E98DF8C82B0A90F7002174B2 /* SavedItemCell.swift in Sources */,
 				E9E3B3902AF13722000B258B /* CalculationProtocol.swift in Sources */,
 				E9CE4DDE2B05460D007FD6AB /* InvertiblesInZPage.swift in Sources */,
 				E95C882A2AFD60DB00B51A38 /* InvertiblesInZ.swift in Sources */,
+				E90D16D12B0D67F5003996E6 /* MultiplicationInZVM.swift in Sources */,
+				E90D16C42B0D552F003996E6 /* ExtendedEuclidAlgoVM.swift in Sources */,
 				E95C882E2AFD8AC600B51A38 /* InverseInZ.swift in Sources */,
 				E9972FF32B051950004A6553 /* ModuloPage.swift in Sources */,
 				E9CA11682AF0736D0077BBAC /* SolutionSection.swift in Sources */,
+				E90D16C62B0D5ABC003996E6 /* ModuloVM.swift in Sources */,
 				E9CA11662AF073220077BBAC /* NumberField.swift in Sources */,
 				E95C88242AFC1D1500B51A38 /* EquivalenceClass.swift in Sources */,
+				E90D16E02B0E55CF003996E6 /* Localized.swift in Sources */,
 				E95C88282AFC525E00B51A38 /* MultiplicationInZ.swift in Sources */,
 				E9972FF52B051A78004A6553 /* CongruencePage.swift in Sources */,
 				E95E38492B06B3B1003DE8B1 /* RoundedBorder.swift in Sources */,
+				E90D16CF2B0D6662003996E6 /* AdditionInZVM.swift in Sources */,
 				E9CA11302AF070F50077BBAC /* ContentView.swift in Sources */,
 				E9E3B3892AF0B72E000B258B /* Modulo.swift in Sources */,
 				E9CA11642AF072DA0077BBAC /* ACButton.swift in Sources */,
 				E95C882C2AFD7A2900B51A38 /* LinearEquationInZ.swift in Sources */,
+				E90D16BF2B0D51B3003996E6 /* CalculationVMProtocol.swift in Sources */,
 				E9CE4DE02B054660007FD6AB /* LinearEquationInZPage.swift in Sources */,
 				E9972FEF2B03C716004A6553 /* ExtendedEuclidAlgoPage.swift in Sources */,
 				E9CA112E2AF070F50077BBAC /* Algo_CryptoApp.swift in Sources */,
 				E91160052B0134D6002F1032 /* EuclidAlgoPage.swift in Sources */,
 				E9CE4DE22B054674007FD6AB /* InverseInZPage.swift in Sources */,
 				E90FFB142AF1771F00E1DE47 /* Congruence.swift in Sources */,
+				E90D16D32B0D690E003996E6 /* InvertiblesInZVM.swift in Sources */,
 				E9972FF12B03C8F6004A6553 /* SolutionCell.swift in Sources */,
 				E9972FF92B051B88004A6553 /* AdditionInZPage.swift in Sources */,
 				E9E3B38D2AF134DD000B258B /* CalculationPage.swift in Sources */,
 				E9CA11622AF072BA0077BBAC /* EdgeBorder.swift in Sources */,
 				E9CA115E2AF072730077BBAC /* ExtendedEuclidAlgo.swift in Sources */,
+				E90D16D52B0D6C6E003996E6 /* LinearEquationInZVM.swift in Sources */,
+				E90D16CD2B0D6402003996E6 /* EquivalenceClassVM.swift in Sources */,
+				E90D16C22B0D5212003996E6 /* EuclidAlgoVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +541,18 @@
 			targetProxy = E9CA11482AF070F70077BBAC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E90D16DD2B0E41F8003996E6 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E90D16DC2B0E41F8003996E6 /* fr */,
+				E90D16DE2B0E41FA003996E6 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E9CA114F2AF070F70077BBAC /* Debug */ = {
@@ -611,7 +697,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = "1.0 Beta 3";
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thomaslebonnec.Algo-Crypto";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -645,7 +731,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = "1.0 Beta 3";
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thomaslebonnec.Algo-Crypto";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

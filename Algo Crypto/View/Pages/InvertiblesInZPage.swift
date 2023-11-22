@@ -6,21 +6,29 @@
 //
 
 import SwiftUI
+import SwiftData
+
 
 struct InvertiblesInZPage: View {
     
     /* ----- Propriétés ----- */
     
-    @State var newInvertibles = InvertiblesInZ()
+    @Environment(\.modelContext) private var modelContext
+    @Query var saves: [InvertiblesInZ]
+    @StateObject var newInvertibles = InvertiblesInZVM()
+    var savesVM: [InvertiblesInZVM] {
+        updateSavesVM()
+    }
     
     
     
     /* ----- Vue ----- */
     
     var body: some View {
-        CalculationPage<InvertiblesInZ>(
-            pageTitle: "Invertible Elements in Z/nZ",
-            newCalculation: $newInvertibles,
+        CalculationPage<InvertiblesInZVM>(
+            pageTitle: Pages().invertibleElementsInZ.pageName,
+            saves: savesVM,
+            newCalculation: newInvertibles,
             numberFields: AnyView(numberFields),
             customSolutionCells: [SolutionCell(content: AnyView(inversesTable))],
             minimumSavedItemCellSize: 500
@@ -30,9 +38,7 @@ struct InvertiblesInZPage: View {
     
     var numberFields: some View {
         HStack(spacing: 0) {
-            NumberField(label: "n", placeholder: "1", input: $newInvertibles.n) {
-                newInvertibles.calculate()
-            }
+            NumberField(label: "n", placeholder: "1", input: $newInvertibles.n)
         }
     }
     
@@ -41,12 +47,12 @@ struct InvertiblesInZPage: View {
         HStack(spacing: 0) {
             // Légende
             VStack(spacing: 0) {
-                Text("Éléments Inversables")
+                Text(LocalizedStringKey("InvertibleElements"))
                     .padding()
                 
                 Divider()
                 
-                Text("Inverses")
+                Text(LocalizedStringKey("Inverses"))
                     .padding()
             }
             
@@ -74,6 +80,19 @@ struct InvertiblesInZPage: View {
         }
         .border(width: 0.33, color: .gray, cornerRadius: 8)
         .padding(.vertical, 8)
+    }
+    
+    
+    
+    /* ----- Méthodes ----- */
+    
+    func updateSavesVM() -> [InvertiblesInZVM] {
+        var s: [InvertiblesInZVM] = []
+        for save in self.saves {
+            let newSaveVM = InvertiblesInZVM(model: save)
+            s.append(newSaveVM)
+        }
+        return s
     }
 }
 

@@ -18,10 +18,10 @@ enum Page: String {
 class PageInfo<Content: View>: Identifiable, Equatable {
     let id = UUID()
     let page: Page
-    let pageName: String
+    let pageName: LocalizedStringKey
     let destination: () -> Content
 
-    init(page: Page, pageName: String, @ViewBuilder destination: @escaping () -> Content) {
+    init(page: Page, pageName: LocalizedStringKey, @ViewBuilder destination: @escaping () -> Content) {
         self.page = page
         self.pageName = pageName
         self.destination = destination
@@ -36,10 +36,10 @@ class PageInfo<Content: View>: Identifiable, Equatable {
 
 class PageGroup: Identifiable {
     let id = UUID()
-    let groupName: String
+    let groupName: LocalizedStringKey
     let pages: [PageInfo<AnyView>]
     
-    init(groupName: String, pages: [PageInfo<AnyView>]) {
+    init(groupName: LocalizedStringKey, pages: [PageInfo<AnyView>]) {
         self.groupName = groupName
         self.pages = pages
     }
@@ -49,23 +49,22 @@ class PageGroup: Identifiable {
 
 class Pages {
     let pageGroups: [PageGroup]
-    let defaultPage = PageInfo(page: .euclidAlgo, pageName: "Euclidean Algorithm - GCD") { AnyView(EuclidAlgoPage()) }
+    
+    let euclidAlgo = PageInfo(page: .euclidAlgo, pageName: "EuclidAlgo") { AnyView(EuclidAlgoPage()) }
+    let extendedEuclidAlgo = PageInfo(page: .extendedEuclidAlgo, pageName: "ExtendedEuclidAlgo") { AnyView(ExtendedEuclidAlgoPage()) }
+    let modulo = PageInfo(page: .modulo, pageName: "Modulo") { AnyView(ModuloPage()) }
+    let congruence = PageInfo(page: .congruence, pageName: "Congruence") { AnyView(CongruencePage()) }
+    let equivalenceClass = PageInfo(page: .equivalenceClass, pageName: "EquivalenceClass") { AnyView(EquivalenceClassPage()) }
+    let additionInZ = PageInfo(page: .additionInZ, pageName: "AdditionInZ") { AnyView(AdditionInZPage()) }
+    let multiplicationInZ = PageInfo(page: .multiplicationInZ, pageName: "MultiplicationInZ") { AnyView(MultiplicationInZPage()) }
+    let invertibleElementsInZ = PageInfo(page: .invertiblesInZ, pageName: "InvertibleElementsInZ") { AnyView(InvertiblesInZPage()) }
+    let linearEquationInZ = PageInfo(page: .linearEquationInZ, pageName: "LinearEquationInZ") { AnyView(LinearEquationInZPage()) }
+    let inverseInZ = PageInfo(page: .inverseInZ, pageName: "InverseInZ") { AnyView(InverseInZPage()) }
     
     
     init() {
         self.pageGroups = [
-            PageGroup(groupName: "Chapitre 1", pages: [
-                defaultPage,
-                PageInfo(page: .extendedEuclidAlgo, pageName: "Extended Euclidean Algorithm") { AnyView(ExtendedEuclidAlgoPage()) },
-                PageInfo(page: .modulo, pageName: "Modulo") { AnyView(ModuloPage()) },
-                PageInfo(page: .congruence, pageName: "Congruence") { AnyView(CongruencePage()) },
-                PageInfo(page: .equivalenceClass, pageName: "Equivalence Class") { AnyView(EquivalenceClassPage()) },
-                PageInfo(page: .additionInZ, pageName: "Addition In Z/nZ") { AnyView(AdditionInZPage()) },
-                PageInfo(page: .multiplicationInZ, pageName: "Multiplication In Z/nZ") { AnyView(MultiplicationInZPage()) },
-                PageInfo(page: .invertiblesInZ, pageName: "Invertible Elements In Z/nZ") { AnyView(InvertiblesInZPage()) },
-                PageInfo(page: .linearEquationInZ, pageName: "Linear Equation in Z/nZ") { AnyView(LinearEquationInZPage()) },
-                PageInfo(page: .inverseInZ, pageName: "Inverse In Z/nZ") { AnyView(InverseInZPage()) }
-            ])
+            PageGroup(groupName: "Chapter1", pages: [euclidAlgo, extendedEuclidAlgo, modulo, congruence, equivalenceClass, additionInZ, multiplicationInZ, invertibleElementsInZ, linearEquationInZ, inverseInZ])
         ]
     }
 }

@@ -1,0 +1,92 @@
+/* 
+  Localizable.strings
+  Algo Crypto
+
+  Created by Thomas Le Bonnec on 22/11/2023.
+  
+*/
+
+
+// General
+
+"SaveAndReset" = "Save and Reset";
+"Reset" = "Reset";
+"Clean" = "Clean";
+"SavedCalculations" = "Saved Calculations";
+"Chapter1" = "Chapter 1";
+"Chapter2" = "Chapter 2";
+"Chapter3" = "Chapter 3";
+"Chapter4" = "Chapter 4";
+"InputError" = "Incorrect input values";
+"TheVoid" = "No, really. Nothing.";
+
+"Update" = "Update";
+"LastGitHubVersion" = "Last version on GitHub";
+
+
+
+// Algo Euclide
+
+"EuclidAlgo" = "Euclidean Algorithm - GCD";
+"GCD" = "GCD";
+"gcd" = "gcd";
+
+
+
+// Algo Euclide Étendu
+
+"ExtendedEuclidAlgo" = "Extended Euclidean Algorithm";
+
+
+
+// Modulo
+
+"Modulo" = "Modulo";
+
+
+
+// Congruence
+
+"Congruence" = "Congruence";
+
+
+
+// Classe d'Équivalence
+
+"EquivalenceClass" = "Equivalence Class";
+"in" = "in";
+
+
+
+// Addition dans Z/nZ
+
+"AdditionInZ" = "Addition in Z/nZ";
+
+
+// Multiplication dans Z/nZ
+
+"MultiplicationInZ" = "Multiplication in Z/nZ";
+
+
+
+// Éléments Inversables
+
+"InvertibleElementsInZ" = "Invertible Elements in Z/nZ";
+"InvertibleIn" = "Invertible elements in";
+"InvertibleElements" = "Invertible Elements";
+"Inverses" = "Inverses";
+
+
+
+// Équation Linéaire
+
+"LinearEquationInZ" = "Linear Equation in Z/nZ";
+"For" = "For";
+"canTakeValue" = "can take the following values:";
+
+
+
+// Inverses dans Z
+
+"InverseInZ" = "Inverse in Z/nZ";
+"InverseOf" = "Inverse of";

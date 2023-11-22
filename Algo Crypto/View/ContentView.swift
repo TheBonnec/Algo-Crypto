@@ -19,7 +19,7 @@ struct ContentView: View {
     
     init() {
         self.pages = Pages()
-        self.selectedPage = self.pages.defaultPage
+        self.selectedPage = self.pages.euclidAlgo
     }
     
 
@@ -37,7 +37,7 @@ struct ContentView: View {
                                     self.selectedPage = page
                                 } label: {
                                     HStack {
-                                        Text("\(page.pageName)")
+                                        Text(page.pageName)
                                             
                                         Spacer()
                                     }
@@ -83,7 +83,7 @@ struct ContentView: View {
     
     func cellBackground(pageInfo: PageInfo<AnyView>) -> Color? {
         if self.selectedPage.page == pageInfo.page {
-            return Color.elémentSecondaire
+            return Color.elementSecondaire
         }
         return nil
     }

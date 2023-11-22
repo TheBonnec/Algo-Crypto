@@ -6,21 +6,29 @@
 //
 
 import SwiftUI
+import SwiftData
+
 
 struct ModuloPage: View {
     
     /* ----- Propriétés ----- */
     
-    @State var newModulo = Modulo()
+    @Environment(\.modelContext) private var modelContext
+    @Query var saves: [Modulo]
+    @StateObject var newModulo = ModuloVM()
+    var savesVM: [ModuloVM] {
+        updateSavesVM()
+    }
     
     
     
     /* ----- Vue ----- */
     
     var body: some View {
-        CalculationPage<Modulo>(
-            pageTitle: "Modulo",
-            newCalculation: $newModulo,
+        CalculationPage<ModuloVM>(
+            pageTitle: Pages().modulo.pageName,
+            saves: savesVM,
+            newCalculation: newModulo,
             numberFields: AnyView(numberFields),
             minimumSavedItemCellSize: 150
         )
@@ -29,16 +37,23 @@ struct ModuloPage: View {
     
     var numberFields: some View {
         HStack(spacing: 0) {
-            NumberField(label: "x", placeholder: "0", input: $newModulo.x, onChangeAction: {
-                newModulo.calculate()
-            })
-            NumberField(label: "a", placeholder: "1", input: $newModulo.a, onChangeAction: {
-                newModulo.calculate()
-            })
-            NumberField(label: "n", placeholder: "0", input: $newModulo.n, onChangeAction: {
-                newModulo.calculate()
-            })
+            NumberField(label: "x", placeholder: "0", input: $newModulo.x)
+            NumberField(label: "a", placeholder: "1", input: $newModulo.a)
+            NumberField(label: "n", placeholder: "0", input: $newModulo.n)
         }
+    }
+    
+    
+    
+    /* ----- Méthodes ----- */
+    
+    func updateSavesVM() -> [ModuloVM] {
+        var s: [ModuloVM] = []
+        for save in self.saves {
+            let newSaveVM = ModuloVM(model: save)
+            s.append(newSaveVM)
+        }
+        return s
     }
 }
 

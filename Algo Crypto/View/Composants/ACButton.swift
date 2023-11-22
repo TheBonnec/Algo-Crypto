@@ -12,14 +12,14 @@ import SwiftUI
 
 struct ACButton: View {
     
-    var label: String
+    var label: LocalizedStringKey
     var style: ButtonStyle
     var action: () -> Void
     
     let backgroundColor: Color
     let textColor: Color
     
-    init(label: String, style: ButtonStyle = .primary, action: @escaping () -> Void) {
+    init(label: LocalizedStringKey, style: ButtonStyle = .primary, action: @escaping () -> Void) {
         self.label = label
         self.style = style
         self.action = action

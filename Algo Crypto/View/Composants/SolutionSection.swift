@@ -23,9 +23,16 @@ struct SolutionSection: View {
                 }
                 
                 if solution != nil {
-                    LaTeX(solution!)
-                        .font(.title)
-                        .fontWeight(.bold)
+                    if solution == "Input Error" {
+                        Text(LocalizedStringKey("InputError"))
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(.gray)
+                    } else {
+                        LaTeX(solution!)
+                            .font(.title)
+                            .fontWeight(.bold)
+                    }
                 }
             }
          ))
