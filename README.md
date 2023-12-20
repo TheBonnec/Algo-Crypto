@@ -1,6 +1,9 @@
 # Algo-Crypto
 
-###### Application macOS Sonoma pour résoudre les opérations de Math Pour Cryptographie.
+[![Static Badge](https://img.shields.io/badge/version-1.0-blue)](https://github.com/TheBonnec/Algo-Crypto/releases/tag/v1.0)
+
+
+> Application macOS Sonoma pour résoudre les opérations de Math Pour Cryptographie.
 
 
 ## Fonctionnalités
@@ -20,9 +23,9 @@
 
 ## Installation
 
-1. Téléchargez la [dernière version]()
+1. Téléchargez la [dernière version](https://github.com/TheBonnec/Algo-Crypto/releases/tag/v1.0)
 2. Ouvrez le fichier
-3. Déplacer l'app dans le dossier Applications
+3. Déplacez l'app dans le dossier Applications
 
 
 ## Windows
