@@ -1,8 +1,8 @@
 //
-//  CalculationPage.swift
+//  CalculationPage2.swift
 //  Algo Crypto
 //
-//  Created by Thomas Le Bonnec on 31/10/2023.
+//  Created by Thomas Le Bonnec on 26/11/2023.
 //
 
 import SwiftUI
@@ -11,14 +11,14 @@ import SwiftData
 import LaTeXSwiftUI
 
 
-struct CalculationPage<U: CalculationVMProtocol>: View {
+struct CalculationPage2<U: CalculationVMProtocol>: View {
     
     /* ----- Propriétés ----- */
     
     @Environment(\.modelContext) private var modelContext
     
     var pageTitle: LocalizedStringKey
-    var saves: [U]
+    @Binding var saves: [U]
     @ObservedObject var newCalculation: U
     var numberFields: AnyView
     var customSolutionCells: [SolutionCell]? = nil
@@ -41,9 +41,7 @@ struct CalculationPage<U: CalculationVMProtocol>: View {
                 actionButtons
                 
                 // Liste des calculs sauvegardés
-                if saves.count != 0 {
-                    savedItemsGrid
-                }
+                savedItemsGrid
             }
             .padding(.horizontal, 4)
             .padding(.vertical)
@@ -51,7 +49,7 @@ struct CalculationPage<U: CalculationVMProtocol>: View {
         .navigationTitle(pageTitle)
         .scrollIndicators(.never)
         .onDisappear {
-            //self.save()
+            self.save()
         }
     }
     
@@ -102,15 +100,15 @@ struct CalculationPage<U: CalculationVMProtocol>: View {
             if saves.count != 0 {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: minimumSavedItemCellSize), spacing: 16)], spacing: 16) {
                     ForEach(saves, id: \.id) { save in
-                        SavedItemCell(label: save.displayLabel(), solution: save.displayResult())
-                        /*
+                        //SavedItemCell(label: save.displayLabel(), solution: save.displayResult())
+                        
                         if type(of: save) == PrimeFactorsVM.self {
                             let s = save as! PrimeFactorsVM
                             SavedItemCell(label: s.constantDisplayLabel, solution: s.constantDisplayResult)
                         } else {
                             SavedItemCell(label: save.displayLabel(), solution: save.displayResult())
                         }
-                        */
+                        
                     }
                 }
             } else {
@@ -154,5 +152,6 @@ struct CalculationPage<U: CalculationVMProtocol>: View {
 
 
 #Preview {
-    CalculationPage<EuclidAlgoVM>(pageTitle: "Euclid Algo", saves: [], newCalculation: EuclidAlgoVM(), numberFields: AnyView(Text("")), minimumSavedItemCellSize: 200)
+    CalculationPage2<EuclidAlgoVM>(pageTitle: "Euclid Algo", saves: .constant([]), newCalculation: EuclidAlgoVM(), numberFields: AnyView(Text("")), minimumSavedItemCellSize: 200)
 }
+

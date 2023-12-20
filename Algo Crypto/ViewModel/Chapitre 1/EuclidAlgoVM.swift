@@ -1,5 +1,5 @@
 //
-//  EquivalenceClassVM.swift
+//  EuclidAlgoVM.swift
 //  Algo Crypto
 //
 //  Created by Thomas Le Bonnec on 21/11/2023.
@@ -11,16 +11,16 @@ import SwiftUI
 import Combine
 
 
-class EquivalenceClassVM: ObservableObject, CalculationVMProtocol {
+class EuclidAlgoVM: ObservableObject, CalculationVMProtocol {
     
     /* ----- Propriétés ----- */
     
     var id = UUID()
     
     @Published var a: Int?
-    @Published var n: Int?
-    private var model: EquivalenceClass?
-    var equivalences: [Int] {
+    @Published var b: Int?
+    private var model: EuclidAlgo?
+    var result: Int {
         calculate()
     }
     
@@ -30,13 +30,19 @@ class EquivalenceClassVM: ObservableObject, CalculationVMProtocol {
     
     required init() {
         self.a = nil
-        self.n = nil
+        self.b = nil
         self.model = nil
     }
     
-    init(model: EquivalenceClass) {
+    init(a: Int?, b: Int?) {
+        self.a = a
+        self.b = b
+        self.model = nil
+    }
+    
+    init(model: EuclidAlgo) {
         self.a = model.a
-        self.n = model.n
+        self.b = model.b
         self.model = model
     }
     
@@ -44,33 +50,34 @@ class EquivalenceClassVM: ObservableObject, CalculationVMProtocol {
     
     /* ----- Méthodes ----- */
     
-    func calculate() -> [Int] {
-        if model != nil { return model!.equivalences }
-        guard inputValidity() else { return [] }
+    func calculate() -> Int {
+        if model != nil { return model!.r }
+        guard inputValidity() else { return -1 }
         
-        let limit = 4 * n!
-        var eq: [Int] = []
+        // x et y sont des copies de a et b, car r et q sont toujours calculés et n'ont jamais besoin d'être stockés (q inutile, et r = a % b)
+        var x = self.a!
+        var y = self.b!
+        var r = 1
         
-        for i in 1..<limit {
-            if i % n! == a! {
-                eq.append(i)
-            }
+        while r > 0 {
+            r = x % y
+            x = y
+            y = r
         }
-        
-        return eq
+        return x
     }
     
     
     func inputValidity() -> Bool {
-        guard a != nil && n != nil else { return false }
-        guard a! > 0 && n! > 0 else { return false }
+        guard self.a != nil && self.b != nil else { return false }
+        guard self.a != 0 && self.b != 0 else { return false }
         return true
     }
     
     
     func resetInputs() {
         self.a = nil
-        self.n = nil
+        self.b = nil
         self.model = nil
     }
     
@@ -78,9 +85,9 @@ class EquivalenceClassVM: ObservableObject, CalculationVMProtocol {
     func saveModel(context: ModelContext) -> Bool {
         guard inputValidity() else { return false }
         if model == nil {
-            model = EquivalenceClass(a: a, n: n, equivalences: equivalences)
+            model = EuclidAlgo(a: a!, b: b!, r: result)
         } else {
-            model!.setEvery(a: a, n: n, equivalences: equivalences)
+            model!.setEvery(a: a!, b: b!, r: result)
         }
         context.insert(model!)
         return true
@@ -94,19 +101,11 @@ class EquivalenceClassVM: ObservableObject, CalculationVMProtocol {
     
     
     func displayLabel() -> String {
-        return "\("in".localized())  $\\frac{\\mathbb{Z}}{\(n ?? 0)\\mathbb{Z}}$"
+        return "\("gcd".localized())(\(a ?? 0), \(b ?? 0))"
     }
     
     func displayResult() -> String {
         guard inputValidity() else { return "Input Error" }
-        
-        if a! < n! {
-            var equivalenceText = ""
-            for e in equivalences {
-                equivalenceText += "\(e), "
-            }
-            return "$\\bar{\(a!)} = [\(equivalenceText)...]$"
-        }
-        return "Pas de solution pour a > n"
+        return "\(self.result)"
     }
 }

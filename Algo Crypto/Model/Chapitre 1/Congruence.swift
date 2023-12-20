@@ -25,7 +25,7 @@ final class Congruence {
         self.b = b
         self.q = q
         self.n = n
-        self.result = 0
+        self.result = result
     }
     
     func setEvery(a: Int?, p: Int?, b: Int?, q: Int?, n: Int?, result: Int) {
@@ -34,6 +34,6 @@ final class Congruence {
         self.b = b
         self.q = q
         self.n = n
-        self.result = 0
+        self.result = result
     }
 }

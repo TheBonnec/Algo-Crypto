@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "ciuaisen",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/TheBonnec/CIUAisen",
+      "state" : {
+        "branch" : "main",
+        "revision" : "535876ec0ade8206a76c184a44260957b69b9c8a"
+      }
+    },
+    {
       "identity" : "latexswiftui",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/grdleo/LaTeXSwiftUI",

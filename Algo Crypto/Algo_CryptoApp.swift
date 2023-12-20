@@ -22,7 +22,13 @@ struct Algo_CryptoApp: App {
             MultiplicationInZ.self,
             InvertiblesInZ.self,
             LinearEquationInZ.self,
-            InverseInZ.self
+            InverseInZ.self,
+            PrimeFactors.self,
+            Phi.self,
+            PolynomialEquation.self,
+            OppositeKey.self,
+            RSA.self,
+            RSASignature.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
             
@@ -32,11 +38,14 @@ struct Algo_CryptoApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+    
+    //@State var finalAlphabet: [Letter] = []
 
     
     var body: some Scene {
         WindowGroup {
             ContentView()
+            //AlphabetSelectorView(finalAlphabet: $finalAlphabet)
                 .onAppear(perform: {
                     hideTitleBarOnCatalyst()
                 })

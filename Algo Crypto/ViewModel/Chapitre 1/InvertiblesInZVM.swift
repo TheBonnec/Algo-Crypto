@@ -41,6 +41,7 @@ class InvertiblesInZVM: ObservableObject, CalculationVMProtocol {
     
     /* ----- Méthodes ----- */
     
+    // TODO: Si n est premier, les inverses sont tous les nombres de 0 à n-1
     func calculate() -> [Int] {
         if model != nil { return model!.invertibles }
         guard inputValidity() else { return [] }

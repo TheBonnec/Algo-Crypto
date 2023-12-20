@@ -10,7 +10,7 @@ import SwiftUI
 
 
 enum Page: String {
-    case euclidAlgo, extendedEuclidAlgo, modulo, congruence, equivalenceClass, additionInZ, multiplicationInZ, invertiblesInZ, linearEquationInZ, inverseInZ
+    case euclidAlgo, extendedEuclidAlgo, modulo, congruence, equivalenceClass, additionInZ, multiplicationInZ, invertiblesInZ, linearEquationInZ, inverseInZ, primeFactors, phi, polynomialEquation, oppositeKey, rsa, rsaSignature
 }
 
 
@@ -50,6 +50,7 @@ class PageGroup: Identifiable {
 class Pages {
     let pageGroups: [PageGroup]
     
+    // Chapitre 1
     let euclidAlgo = PageInfo(page: .euclidAlgo, pageName: "EuclidAlgo") { AnyView(EuclidAlgoPage()) }
     let extendedEuclidAlgo = PageInfo(page: .extendedEuclidAlgo, pageName: "ExtendedEuclidAlgo") { AnyView(ExtendedEuclidAlgoPage()) }
     let modulo = PageInfo(page: .modulo, pageName: "Modulo") { AnyView(ModuloPage()) }
@@ -61,10 +62,20 @@ class Pages {
     let linearEquationInZ = PageInfo(page: .linearEquationInZ, pageName: "LinearEquationInZ") { AnyView(LinearEquationInZPage()) }
     let inverseInZ = PageInfo(page: .inverseInZ, pageName: "InverseInZ") { AnyView(InverseInZPage()) }
     
+    // Chapitre 2
+    let primeFactors = PageInfo(page: .primeFactors, pageName: "Décomposition en Facteurs Premiers", destination: { AnyView(PrimeFactorsPage()) })
+    let phi = PageInfo(page: .phi, pageName: "Phi - 'Totient Function'", destination: { AnyView(PhiPage()) })
+    let polynomialEquation = PageInfo(page: .polynomialEquation, pageName: "Équation Polynomiale dans Z/nZ", destination: { AnyView(PolynomialEquationPage()) })
+    let oppositeKey = PageInfo(page: .oppositeKey, pageName: "Clef Opposée", destination: { AnyView(OppositeKeyPage()) })
+    let rsa = PageInfo(page: .rsa, pageName: "Encryptage / Décryptage RSA", destination: { AnyView(RSAPage()) })
+    let rsaSignature = PageInfo(page: .rsaSignature, pageName: "Signature RSA", destination: { AnyView(RSASignaturePage()) })
+    
+    
     
     init() {
         self.pageGroups = [
-            PageGroup(groupName: "Chapter1", pages: [euclidAlgo, extendedEuclidAlgo, modulo, congruence, equivalenceClass, additionInZ, multiplicationInZ, invertibleElementsInZ, linearEquationInZ, inverseInZ])
+            PageGroup(groupName: "Chapter1", pages: [euclidAlgo, extendedEuclidAlgo, modulo, congruence, equivalenceClass, additionInZ, multiplicationInZ, invertibleElementsInZ, linearEquationInZ, inverseInZ]),
+            PageGroup(groupName: "Chapitre 3", pages: [primeFactors, phi, polynomialEquation, oppositeKey, rsa, rsaSignature])
         ]
     }
 }
