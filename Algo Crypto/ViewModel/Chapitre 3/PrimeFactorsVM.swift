@@ -120,7 +120,7 @@ class PrimeFactorsVM: ObservableObject, CalculationVMProtocol, Equatable {
         if model != nil {
             values = model!.factors
         } else {
-            guard inputValidity() else { return "Input Error" }
+            guard inputValidity() else { return "InputError".localized() }
             values = factors
         }
         

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import CIUAisen
 
 
 struct ExtendedEuclidAlgoPage: View {
@@ -16,51 +17,55 @@ struct ExtendedEuclidAlgoPage: View {
     @Environment(\.modelContext) private var modelContext
     @Query var saves: [ExtendedEuclidAlgo]
     @StateObject var newExtendedEuclidAlgo = ExtendedEuclidAlgoVM()
-    var savesVM: [ExtendedEuclidAlgoVM] {
-        updateSavesVM()
-    }
     
     
     
     /* ----- Vue ----- */
     
     var body: some View {
-        CalculationPage<ExtendedEuclidAlgoVM>(
-            pageTitle: Pages().extendedEuclidAlgo.pageName,
-            saves: savesVM,
-            newCalculation: newExtendedEuclidAlgo,
-            numberFields: AnyView(numberFields),
-            customSolutionCells: [SolutionCell(content: AnyView(customSolutionCell))],
-            minimumSavedItemCellSize: 150
-        )
-    }
-    
-    
-    var numberFields: some View {
-        HStack(spacing: 0) {
-            NumberField(label: "a", placeholder: "0", input: $newExtendedEuclidAlgo.a)
-            NumberField(label: "b", placeholder: "0", input: $newExtendedEuclidAlgo.b)
+        TypicalPage(title: Pages().extendedEuclidAlgo.clé, newCalculation: newExtendedEuclidAlgo, saves: saves, minimumSavesCellSize: 200) {
+            HStack(spacing: 16) {
+                ChampDeTexte(label: "a", entréeNumérale: $newExtendedEuclidAlgo.a)
+                ChampDeTexte(label: "b", entréeNumérale: $newExtendedEuclidAlgo.b)
+            }
+        } results: {
+            CelluleResultat(description: newExtendedEuclidAlgo.displayLabel()) {
+                let result = newExtendedEuclidAlgo.result
+                if newExtendedEuclidAlgo.inputValidity() {
+                    Text("u\t\(result.u)\nv\t\(result.v)\nr\t\(result.r ?? 0)\nq\t\(result.q ?? 0)")
+                        .multilineTextAlignment(.center)
+                        .font(.title)
+                        .fontWeight(.bold)
+                } else {
+                    Text(newExtendedEuclidAlgo.displayResult())
+                        .font(.title)
+                        .fontWeight(.bold)
+                }
+            }
+        } savesSection: {
+            ForEach(saves) { save in
+                Cellule(alignement: .center, largeurMax: .infinity) {
+                    Text(displaySavedLabel(save: save))
+                        .foregroundStyle(Color.texteSecondaire)
+                    
+                    Text(displaySavedResult(save: save))
+                        .font(.title2)
+                        .fontWeight(.bold)
+                }
+            }
         }
-    }
-    
-    
-    var customSolutionCell: some View {
-        Text("u\t\(newExtendedEuclidAlgo.result.u)\nv\t\(newExtendedEuclidAlgo.result.v)\nr\t\(newExtendedEuclidAlgo.result.r ?? 0)\nq\t\(newExtendedEuclidAlgo.result.q ?? 0)")
-            .font(.title)
-            .fontWeight(.bold)
     }
     
     
     
     /* ----- Méthodes ----- */
     
-    func updateSavesVM() -> [ExtendedEuclidAlgoVM] {
-        var s: [ExtendedEuclidAlgoVM] = []
-        for save in self.saves {
-            let newSaveVM = ExtendedEuclidAlgoVM(model: save)
-            s.append(newSaveVM)
-        }
-        return s
+    func displaySavedLabel(save: ExtendedEuclidAlgo) -> String {
+        return "\("gcd".localized())(\(save.a ?? 0), \(save.b ?? 0))"
+    }
+    
+    func displaySavedResult(save: ExtendedEuclidAlgo) -> String {
+        return "\(save.r ?? 0)"
     }
 }
 

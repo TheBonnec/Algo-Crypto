@@ -6,7 +6,10 @@
 //
 
 import SwiftUI
+import CIUAisen
 import SwiftData
+import LaTeXSwiftUI
+
 
 
 struct ModuloPage: View {
@@ -16,30 +19,34 @@ struct ModuloPage: View {
     @Environment(\.modelContext) private var modelContext
     @Query var saves: [Modulo]
     @StateObject var newModulo = ModuloVM()
-    var savesVM: [ModuloVM] {
-        updateSavesVM()
-    }
     
     
     
     /* ----- Vue ----- */
     
     var body: some View {
-        CalculationPage<ModuloVM>(
-            pageTitle: Pages().modulo.pageName,
-            saves: savesVM,
-            newCalculation: newModulo,
-            numberFields: AnyView(numberFields),
-            minimumSavedItemCellSize: 150
-        )
-    }
-    
-    
-    var numberFields: some View {
-        HStack(spacing: 0) {
-            NumberField(label: "x", placeholder: "0", input: $newModulo.x)
-            NumberField(label: "a", placeholder: "1", input: $newModulo.a)
-            NumberField(label: "n", placeholder: "0", input: $newModulo.n)
+        TypicalPage(title: Pages().modulo.clé, newCalculation: newModulo, saves: saves, minimumSavesCellSize: 200) {
+            HStack(spacing: 16) {
+                ChampDeTexte(label: "x", entréeNumérale: $newModulo.x)
+                ChampDeTexte(label: "a", entréeNumérale: $newModulo.a)
+                ChampDeTexte(label: "n", entréeNumérale: $newModulo.n)
+            }
+        } results: {
+            CelluleResultat(
+                description: newModulo.displayLabel(),
+                résultat: newModulo.displayResult()
+            )
+        } savesSection: {
+            ForEach(saves) { save in
+                Cellule(alignement: .center, largeurMax: .infinity) {
+                    LaTeX(displaySavedLabel(save: save))
+                        .foregroundStyle(Color.texteSecondaire)
+                    
+                    Text(displaySavedResult(save: save))
+                        .font(.title2)
+                        .fontWeight(.bold)
+                }
+            }
         }
     }
     
@@ -47,13 +54,12 @@ struct ModuloPage: View {
     
     /* ----- Méthodes ----- */
     
-    func updateSavesVM() -> [ModuloVM] {
-        var s: [ModuloVM] = []
-        for save in self.saves {
-            let newSaveVM = ModuloVM(model: save)
-            s.append(newSaveVM)
-        }
-        return s
+    func displaySavedLabel(save: Modulo) -> String {
+        return "$\(save.x ?? 0)^{\(save.a ?? 0)}[\(save.n ?? 0)]$"
+    }
+    
+    func displaySavedResult(save: Modulo) -> String {
+        return "\(save.result)[\(save.n!)]"
     }
 }
 

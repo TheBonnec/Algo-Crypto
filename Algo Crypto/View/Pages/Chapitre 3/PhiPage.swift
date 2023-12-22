@@ -6,7 +6,10 @@
 //
 
 import SwiftUI
+import CIUAisen
 import SwiftData
+import LaTeXSwiftUI
+
 
 
 struct PhiPage: View {
@@ -16,8 +19,16 @@ struct PhiPage: View {
     @Environment(\.modelContext) private var modelContext
     @Query var saves: [Phi]
     @StateObject var newPhi = PhiVM()
-    var savesVM: [PhiVM] {
-        updateSavesVM()
+    var phiMods: [ElementDeSelecteur]
+    @State var phiMod: ElementDeSelecteur
+    
+    
+    
+    /* ----- Inits ----- */
+    
+    init() {
+        self.phiMods = [ElementDeSelecteur(clé: "Calculer avec n"), ElementDeSelecteur(clé: "Calculer avec p et q"), ElementDeSelecteur(clé: "Calculer φ(φ(n))")]
+        self._phiMod = State(initialValue: self.phiMods[0])
     }
     
     
@@ -25,34 +36,50 @@ struct PhiPage: View {
     /* ----- Vue ----- */
     
     var body: some View {
-        CalculationPage<PhiVM>(
-            pageTitle: Pages().phi.pageName,
-            saves: savesVM,
-            newCalculation: newPhi,
-            numberFields: AnyView(numberFields),
-            minimumSavedItemCellSize: 250
-        )
+        TypicalPage(title: Pages().phi.clé, newCalculation: newPhi, saves: saves, minimumSavesCellSize: 250) {
+            inputs
+        } results: {
+            CelluleResultat(
+                description: newPhi.displayLabel(),
+                résultat: newPhi.displayResult()
+            )
+        } savesSection: {
+            ForEach(saves) { save in
+                Cellule(alignement: .center, largeurMax: .infinity) {
+                    LaTeX(displaySavedLabel(save: save))
+                        .foregroundStyle(Color.texteSecondaire)
+                    
+                    Text(displaySavedResult(save: save))
+                        .font(.title2)
+                        .fontWeight(.bold)
+                }
+            }
+        }
     }
     
     
-    
-    var numberFields: some View {
-        HStack(spacing: 0) {
-            switch newPhi.mode {
-            case .n:
-                NumberField(label: "n", placeholder: "1", input: $newPhi.n)
-                ACButton(label: "Calculer avec p et q", style: .tertiary) { newPhi.mode = .pq }
-                ACButton(label: "Calculer avec n et k", style: .tertiary) { newPhi.mode = .nk }
-            case .pq:
-                NumberField(label: "p", placeholder: "1", input: $newPhi.p)
-                NumberField(label: "q", placeholder: "1", input: $newPhi.q)
-                ACButton(label: "Calculer avec n", style: .tertiary) { newPhi.mode = .n }
-                ACButton(label: "Calculer avec n et k", style: .tertiary) { newPhi.mode = .nk }
-            case .nk:
-                NumberField(label: "n", placeholder: "1", input: $newPhi.n)
-                NumberField(label: "k", placeholder: "1", input: $newPhi.k)
-                ACButton(label: "Calculer avec n", style: .tertiary) { newPhi.mode = .n }
-                ACButton(label: "Calculer avec p et q", style: .tertiary) { newPhi.mode = .pq }
+    var inputs: some View {
+        VStack(spacing: 16) {
+            SelecteurDeroulant(options: phiMods, selection: $phiMod)
+            
+            HStack(spacing: 16) {
+                switch newPhi.mode {
+                case .n:
+                    ChampDeTexte(label: "n", entréeNumérale: $newPhi.n)
+                case .pq:
+                    ChampDeTexte(label: "p", entréeNumérale: $newPhi.p)
+                    ChampDeTexte(label: "q", entréeNumérale: $newPhi.q)
+                case .phiPhi:
+                    ChampDeTexte(label: "n", entréeNumérale: $newPhi.n)
+                }
+            }
+        }
+        .onChange(of: phiMod) { _, _ in
+            switch phiMod.clé {
+            case "Calculer avec n": self.newPhi.mode = .n
+            case "Calculer avec p et q": self.newPhi.mode = .pq
+            case "Calculer φ(φ(n))": self.newPhi.mode = .phiPhi
+            default: self.newPhi.mode = .n
             }
         }
     }
@@ -61,13 +88,16 @@ struct PhiPage: View {
     
     /* ----- Méthodes ----- */
     
-    func updateSavesVM() -> [PhiVM] {
-        var s: [PhiVM] = []
-        for save in self.saves {
-            let newSaveVM = PhiVM(model: save)
-            s.append(newSaveVM)
+    func displaySavedLabel(save: Phi) -> String {
+        switch save.mode {
+        case .n: return "$\\phi(\(save.n ?? 0))$"
+        case .pq: return "$\\phi(\(save.p ?? 0) \\times \(save.q ?? 0))$"
+        case .phiPhi: return "$\\phi(\\phi(\(save.n ?? 0)))$"
         }
-        return s
+    }
+    
+    func displaySavedResult(save: Phi) -> String {
+        return "\(save.result)"
     }
 }
 

@@ -98,7 +98,7 @@ class EquivalenceClassVM: ObservableObject, CalculationVMProtocol {
     }
     
     func displayResult() -> String {
-        guard inputValidity() else { return "Input Error" }
+        guard inputValidity() else { return "InputError".localized() }
         
         if a! < n! {
             var equivalenceText = ""

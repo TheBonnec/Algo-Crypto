@@ -11,7 +11,7 @@ import SwiftUI
 import Combine
 
 
-class OppositeKeyVM: ObservableObject, CalculationVMProtocol {
+class OppositeKeyRSAVM: ObservableObject, CalculationVMProtocol {
     
     /* ----- Propriétés ----- */
     
@@ -20,7 +20,7 @@ class OppositeKeyVM: ObservableObject, CalculationVMProtocol {
     @Published var originalKey: Int?
     @Published var phi: Int?
     @Published var resultWarning: Bool = false
-    private var model: OppositeKey?
+    private var model: OppositeKeyRSA?
     var finalKey: Int {
         calculate()
     }
@@ -35,7 +35,7 @@ class OppositeKeyVM: ObservableObject, CalculationVMProtocol {
         self.model = nil
     }
     
-    init(model: OppositeKey) {
+    init(model: OppositeKeyRSA) {
         self.originalKey = model.originalKey
         self.phi = model.phi
         self.model = model
@@ -89,7 +89,7 @@ class OppositeKeyVM: ObservableObject, CalculationVMProtocol {
     func saveModel(context: ModelContext) -> Bool {
         guard inputValidity() else { return false }
         if model == nil {
-            model = OppositeKey(originalKey: originalKey, phi: phi, finalKey: finalKey)
+            model = OppositeKeyRSA(originalKey: originalKey, phi: phi, finalKey: finalKey)
         } else {
             model!.setEvery(originalKey: originalKey, phi: phi, finalKey: finalKey)
         }
@@ -109,7 +109,7 @@ class OppositeKeyVM: ObservableObject, CalculationVMProtocol {
     }
     
     func displayResult() -> String {
-        guard inputValidity() else { return "Input Error" }
+        guard inputValidity() else { return "InputError".localized() }
         return "\(finalKey)"
     }
 }

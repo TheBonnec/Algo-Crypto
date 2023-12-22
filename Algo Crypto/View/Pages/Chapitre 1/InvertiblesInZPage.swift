@@ -6,7 +6,10 @@
 //
 
 import SwiftUI
+import CIUAisen
 import SwiftData
+import LaTeXSwiftUI
+
 
 
 struct InvertiblesInZPage: View {
@@ -16,29 +19,32 @@ struct InvertiblesInZPage: View {
     @Environment(\.modelContext) private var modelContext
     @Query var saves: [InvertiblesInZ]
     @StateObject var newInvertibles = InvertiblesInZVM()
-    var savesVM: [InvertiblesInZVM] {
-        updateSavesVM()
-    }
     
     
     
     /* ----- Vue ----- */
     
     var body: some View {
-        CalculationPage<InvertiblesInZVM>(
-            pageTitle: Pages().invertibleElementsInZ.pageName,
-            saves: savesVM,
-            newCalculation: newInvertibles,
-            numberFields: AnyView(numberFields),
-            customSolutionCells: [SolutionCell(content: AnyView(inversesTable))],
-            minimumSavedItemCellSize: 500
-        )
-    }
-    
-    
-    var numberFields: some View {
-        HStack(spacing: 0) {
-            NumberField(label: "n", placeholder: "1", input: $newInvertibles.n)
+        TypicalPage(title: Pages().invertibleElementsInZ.clé, newCalculation: newInvertibles, saves: saves, minimumSavesCellSize: 400) {
+            HStack(spacing: 16) {
+                ChampDeTexte(label: "n", entréeNumérale: $newInvertibles.n)
+            }
+        } results: {
+            CelluleResultat(
+                description: newInvertibles.displayLabel()) {
+                    inversesTable
+                }
+        } savesSection: {
+            ForEach(saves) { save in
+                Cellule(alignement: .center, largeurMax: .infinity) {
+                    LaTeX(displaySavedLabel(save: save))
+                        .foregroundStyle(Color.texteSecondaire)
+                    
+                    LaTeX(displaySavedResult(save: save))
+                        .font(.title2)
+                        .fontWeight(.bold)
+                }
+            }
         }
     }
     
@@ -79,20 +85,31 @@ struct InvertiblesInZPage: View {
             }
         }
         .border(width: 0.33, color: .gray, cornerRadius: 8)
-        .padding(.vertical, 8)
+        .padding(.top, 8)
     }
     
     
     
     /* ----- Méthodes ----- */
     
-    func updateSavesVM() -> [InvertiblesInZVM] {
-        var s: [InvertiblesInZVM] = []
-        for save in self.saves {
-            let newSaveVM = InvertiblesInZVM(model: save)
-            s.append(newSaveVM)
+    func displaySavedLabel(save: InvertiblesInZ) -> String {
+        return "\("InvertibleIn".localized()) \("$\\frac{\\mathbb{Z}}{\(save.n ?? 0)\\mathbb{Z}}$")"
+    }
+    
+    func displaySavedResult(save: InvertiblesInZ) -> String {
+        if save.n! >= 0 {
+            var listString = ""
+            for e in save.invertibles {
+                listString.append("\(e), ")
+            }
+            if !listString.isEmpty {
+                listString.removeLast()
+                listString.removeLast()
+            }
+            
+            return "\(listString)"
         }
-        return s
+        return "Pas de solution pour n < 0"
     }
 }
 

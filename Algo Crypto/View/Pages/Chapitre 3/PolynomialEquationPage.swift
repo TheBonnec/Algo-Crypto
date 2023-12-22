@@ -6,7 +6,10 @@
 //
 
 import SwiftUI
+import CIUAisen
 import SwiftData
+import LaTeXSwiftUI
+
 
 
 struct PolynomialEquationPage: View {
@@ -16,8 +19,16 @@ struct PolynomialEquationPage: View {
     @Environment(\.modelContext) private var modelContext
     @Query var saves: [PolynomialEquation]
     @StateObject var newPolynomial = PolynomialEquationVM()
-    var savesVM: [PolynomialEquationVM] {
-        updateSavesVM()
+    var polynomialMods: [ElementDeSelecteur]
+    @State var polynomialMod: ElementDeSelecteur
+    
+    
+    
+    /* ----- Init ----- */
+    
+    init() {
+        self.polynomialMods = [ElementDeSelecteur(clé: "Calculer avec n"), ElementDeSelecteur(clé: "Calculer avec p et q")]
+        self._polynomialMod = State(initialValue: self.polynomialMods[0])
     }
     
     
@@ -25,35 +36,51 @@ struct PolynomialEquationPage: View {
     /* ----- Vue ----- */
     
     var body: some View {
-        CalculationPage<PolynomialEquationVM>(
-            pageTitle: Pages().polynomialEquation.pageName,
-            saves: savesVM,
-            newCalculation: newPolynomial,
-            numberFields: AnyView(numberFields),
-            minimumSavedItemCellSize: 250
-        )
+        TypicalPage(title: Pages().polynomialEquation.clé, newCalculation: newPolynomial, saves: saves, minimumSavesCellSize: 250) {
+            inputs
+        } results: {
+            CelluleResultat(
+                description: newPolynomial.displayLabel(),
+                résultat: newPolynomial.displayResult()
+            )
+        } savesSection: {
+            ForEach(saves) { save in
+                Cellule(alignement: .center, largeurMax: .infinity) {
+                    LaTeX(displaySavedLabel(save: save))
+                        .foregroundStyle(Color.texteSecondaire)
+                    
+                    Text(displaySavedResult(save: save))
+                        .font(.title2)
+                        .fontWeight(.bold)
+                }
+            }
+        }
     }
     
     
-    
-    var numberFields: some View {
-        HStack(spacing: 0) {
-            switch newPolynomial.mode {
-            case .n:
-                NumberField(label: "a", placeholder: "1", input: $newPolynomial.a)
-                NumberField(label: "b", placeholder: "0", input: $newPolynomial.b)
-                NumberField(label: "n", placeholder: "1", input: $newPolynomial.n)
-                ACButton(label: "Calculer avec p et q", style: .tertiary) {
-                    newPolynomial.mode = .pq
+    var inputs: some View {
+        VStack(spacing: 16) {
+            SelecteurDeroulant(options: polynomialMods, selection: $polynomialMod)
+            
+            HStack(spacing: 16) {
+                switch newPolynomial.mode {
+                case .n:
+                    ChampDeTexte(label: "a", entréeNumérale: $newPolynomial.a)
+                    ChampDeTexte(label: "b", entréeNumérale: $newPolynomial.b)
+                    ChampDeTexte(label: "n", entréeNumérale: $newPolynomial.n)
+                case .pq:
+                    ChampDeTexte(label: "a", entréeNumérale: $newPolynomial.a)
+                    ChampDeTexte(label: "b", entréeNumérale: $newPolynomial.b)
+                    ChampDeTexte(label: "p", entréeNumérale: $newPolynomial.p)
+                    ChampDeTexte(label: "q", entréeNumérale: $newPolynomial.q)
                 }
-            case .pq:
-                NumberField(label: "a", placeholder: "1", input: $newPolynomial.a)
-                NumberField(label: "b", placeholder: "0", input: $newPolynomial.b)
-                NumberField(label: "p", placeholder: "1", input: $newPolynomial.p)
-                NumberField(label: "q", placeholder: "1", input: $newPolynomial.q)
-                ACButton(label: "Calculer avec n", style: .tertiary) {
-                    newPolynomial.mode = .n
-                }
+            }
+        }
+        .onChange(of: polynomialMod) { _, _ in
+            switch polynomialMod.clé {
+            case "Calculer avec n": self.newPolynomial.mode = .n
+            case "Calculer avec p et q": self.newPolynomial.mode = .pq
+            default: self.newPolynomial.mode = .n
             }
         }
     }
@@ -62,13 +89,22 @@ struct PolynomialEquationPage: View {
     
     /* ----- Méthodes ----- */
     
-    func updateSavesVM() -> [PolynomialEquationVM] {
-        var s: [PolynomialEquationVM] = []
-        for save in self.saves {
-            let newSaveVM = PolynomialEquationVM(model: save)
-            s.append(newSaveVM)
+    func displaySavedLabel(save: PolynomialEquation) -> String {
+        switch save.mode {
+        case .n: return "$x^{\(save.a ?? 0)} ≡ \(save.b ?? 0)[\(save.n ?? 0)]$"
+        case .pq: return "$x^{\(save.a ?? 0)} ≡ \(save.b ?? 0)[\(save.p ?? 0) \\times \(save.q ?? 0)]$"
         }
-        return s
+    }
+    
+    func displaySavedResult(save: PolynomialEquation) -> String {
+        switch save.mode {
+        case .n:
+            let primeFactor = PrimeFactorsVM(n: save.n!)
+            guard !primeFactor.factors.hasDuplicates() else { return "Pas de solution !" }
+        case .pq:
+            guard save.p!.isPrime() && save.q!.isPrime() else { return "Pas de solution !" }
+        }
+        return "x = \(save.result)"
     }
 }
 

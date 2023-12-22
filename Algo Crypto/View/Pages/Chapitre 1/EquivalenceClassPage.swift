@@ -6,7 +6,10 @@
 //
 
 import SwiftUI
+import CIUAisen
 import SwiftData
+import LaTeXSwiftUI
+
 
 
 struct EquivalenceClassPage: View {
@@ -16,29 +19,33 @@ struct EquivalenceClassPage: View {
     @Environment(\.modelContext) private var modelContext
     @Query var saves: [EquivalenceClass]
     @StateObject var newEquivalence = EquivalenceClassVM()
-    var savesVM: [EquivalenceClassVM] {
-        updateSavesVM()
-    }
     
     
     
     /* ----- Vue ----- */
     
     var body: some View {
-        CalculationPage<EquivalenceClassVM>(
-            pageTitle: Pages().equivalenceClass.pageName,
-            saves: savesVM,
-            newCalculation: newEquivalence,
-            numberFields: AnyView(numberFields),
-            minimumSavedItemCellSize: 400
-        )
-    }
-    
-    
-    var numberFields: some View {
-        HStack(spacing: 0) {
-            NumberField(label: "a", placeholder: "0", input: $newEquivalence.a)
-            NumberField(label: "n", placeholder: "0", input: $newEquivalence.n)
+        TypicalPage(title: Pages().equivalenceClass.clé, newCalculation: newEquivalence, saves: saves, minimumSavesCellSize: 300) {
+            HStack(spacing: 16) {
+                ChampDeTexte(label: "a", entréeNumérale: $newEquivalence.a)
+                ChampDeTexte(label: "n", entréeNumérale: $newEquivalence.n)
+            }
+        } results: {
+            CelluleResultat(
+                description: newEquivalence.displayLabel(),
+                résultat: newEquivalence.displayResult()
+            )
+        } savesSection: {
+            ForEach(saves) { save in
+                Cellule(alignement: .center, largeurMax: .infinity) {
+                    LaTeX(displaySavedLabel(save: save))
+                        .foregroundStyle(Color.texteSecondaire)
+                    
+                    LaTeX(displaySavedResult(save: save))
+                        .font(.title2)
+                        .fontWeight(.bold)
+                }
+            }
         }
     }
     
@@ -46,13 +53,19 @@ struct EquivalenceClassPage: View {
     
     /* ----- Méthodes ----- */
     
-    func updateSavesVM() -> [EquivalenceClassVM] {
-        var s: [EquivalenceClassVM] = []
-        for save in self.saves {
-            let newSaveVM = EquivalenceClassVM(model: save)
-            s.append(newSaveVM)
+    func displaySavedLabel(save: EquivalenceClass) -> String {
+        return "\("in".localized())  $\\frac{\\mathbb{Z}}{\(save.n ?? 0)\\mathbb{Z}}$"
+    }
+    
+    func displaySavedResult(save: EquivalenceClass) -> String {
+        if save.a! < save.n! {
+            var equivalenceText = ""
+            for e in save.equivalences {
+                equivalenceText += "\(e), "
+            }
+            return "$\\bar{\(save.a!)} = [\(equivalenceText)...]$"
         }
-        return s
+        return "Pas de solution pour a > n"
     }
 }
 

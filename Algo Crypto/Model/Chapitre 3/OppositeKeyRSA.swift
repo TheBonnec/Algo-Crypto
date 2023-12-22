@@ -10,7 +10,7 @@ import SwiftData
 
 
 @Model
-class OppositeKey {
+class OppositeKeyRSA {
     var originalKey: Int?
     var phi: Int?
     var finalKey: Int

@@ -7,6 +7,8 @@
 
 import SwiftUI
 import SwiftData
+import CIUAisen
+
 
 
 struct EuclidAlgoPage: View {
@@ -16,30 +18,33 @@ struct EuclidAlgoPage: View {
     @Environment(\.modelContext) private var modelContext
     @Query var saves: [EuclidAlgo]
     @StateObject var newEuclidAlgo = EuclidAlgoVM()
-    var savesVM: [EuclidAlgoVM] {
-        updateSavesVM()
-    }
     
     
     
     /* ----- Vue ----- */
     
     var body: some View {
-        CalculationPage<EuclidAlgoVM>(
-            pageTitle: Pages().euclidAlgo.pageName,
-            saves: savesVM,
-            newCalculation: newEuclidAlgo,
-            numberFields: AnyView(numberFields),
-            minimumSavedItemCellSize: 150
-        )
-    }
-    
-    
-    
-    var numberFields: some View {
-        HStack(spacing: 0) {
-            NumberField(label: "a", placeholder: "0", input: $newEuclidAlgo.a)
-            NumberField(label: "b", placeholder: "0", input: $newEuclidAlgo.b)
+        TypicalPage(title: Pages().euclidAlgo.clé, newCalculation: newEuclidAlgo, saves: saves, minimumSavesCellSize: 200) {
+            HStack(spacing: 16) {
+                ChampDeTexte(label: "a", entréeNumérale: $newEuclidAlgo.a)
+                ChampDeTexte(label: "b", entréeNumérale: $newEuclidAlgo.b)
+            }
+        } results: {
+            CelluleResultat(
+                description: newEuclidAlgo.displayLabel(),
+                résultat: newEuclidAlgo.displayResult()
+            )
+        } savesSection: {
+            ForEach(saves) { save in
+                Cellule(alignement: .center, largeurMax: .infinity) {
+                    Text(displaySavedLabel(save: save))
+                        .foregroundStyle(Color.texteSecondaire)
+                    
+                    Text(displaySavedResult(save: save))
+                        .font(.title2)
+                        .fontWeight(.bold)
+                }
+            }
         }
     }
     
@@ -47,13 +52,12 @@ struct EuclidAlgoPage: View {
     
     /* ----- Méthodes ----- */
     
-    func updateSavesVM() -> [EuclidAlgoVM] {
-        var s: [EuclidAlgoVM] = []
-        for save in self.saves {
-            let newSaveVM = EuclidAlgoVM(model: save)
-            s.append(newSaveVM)
-        }
-        return s
+    func displaySavedLabel(save: EuclidAlgo) -> String {
+        return "\("gcd".localized())(\(save.a ?? 0), \(save.b ?? 0))"
+    }
+    
+    func displaySavedResult(save: EuclidAlgo) -> String {
+        return "\(save.r)"
     }
 }
 

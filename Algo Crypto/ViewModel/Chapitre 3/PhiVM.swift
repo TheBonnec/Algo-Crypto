@@ -21,7 +21,6 @@ class PhiVM: ObservableObject, CalculationVMProtocol {
     @Published var n: Int?
     @Published var p: Int?
     @Published var q: Int?
-    @Published var k: Int?
     private var model: Phi?
     var result: Int {
         calculate()
@@ -36,7 +35,6 @@ class PhiVM: ObservableObject, CalculationVMProtocol {
         self.n = nil
         self.p = nil
         self.q = nil
-        self.k = nil
         self.model = nil
     }
     
@@ -45,7 +43,6 @@ class PhiVM: ObservableObject, CalculationVMProtocol {
         self.n = n
         self.p = nil
         self.q = nil
-        self.k = nil
         self.model = nil
     }
     
@@ -75,7 +72,7 @@ class PhiVM: ObservableObject, CalculationVMProtocol {
         switch mode {
         case .n: return calculateN()
         case .pq: return calculatePQ()
-        case .nk: return calculateNK()
+        case .phiPhi: return calculatePhiPhi()
         }
         
         
@@ -110,7 +107,13 @@ class PhiVM: ObservableObject, CalculationVMProtocol {
             return ((p! - 1) * (q! - 1))
         }
         
-        func calculateNK() -> Int {
+        func calculatePhiPhi() -> Int {
+            let phi = PhiVM(n: self.n!)
+            let phiPhi = PhiVM(n: phi.result)
+            return phiPhi.result
+            
+            /*
+            // Phi avec n et k : Force Brute
             let phi = calculateN()
             var count = 0
             
@@ -121,6 +124,7 @@ class PhiVM: ObservableObject, CalculationVMProtocol {
                 }
             }
             return count
+            */
         }
     }
     
@@ -134,9 +138,9 @@ class PhiVM: ObservableObject, CalculationVMProtocol {
             guard self.p != nil && self.q != nil else { return false }
             guard self.p! > 0 && self.p!.isPrime() else { return false }
             guard self.q! > 0 && self.q!.isPrime() else { return false }
-        case .nk:
-            guard self.n != nil && self.k != nil else { return false }
-            guard self.n! > 1 && self.k! > 0 else { return false }
+        case .phiPhi:
+            guard self.n != nil else { return false }
+            guard self.n! > 1 else { return false }
         }
         return true
     }
@@ -146,7 +150,6 @@ class PhiVM: ObservableObject, CalculationVMProtocol {
         self.n = nil
         self.p = nil
         self.q = nil
-        self.k = nil
         self.model = nil
     }
     
@@ -154,9 +157,9 @@ class PhiVM: ObservableObject, CalculationVMProtocol {
     func saveModel(context: ModelContext) -> Bool {
         guard inputValidity() else { return false }
         if model == nil {
-            model = Phi(mode: mode, n: n, p: p, q: q, k: k, result: result)
+            model = Phi(mode: mode, n: n, p: p, q: q, result: result)
         } else {
-            model!.setEvery(mode: mode, n: n, p: p, q: q, k: k, result: result)
+            model!.setEvery(mode: mode, n: n, p: p, q: q, result: result)
         }
         context.insert(model!)
         return true
@@ -173,12 +176,12 @@ class PhiVM: ObservableObject, CalculationVMProtocol {
         switch mode {
         case .n: return "$\\phi(\(n ?? 0))$"
         case .pq: return "$\\phi(\(p ?? 0) \\times \(q ?? 0))$"
-        case .nk: return "$\\phi(\(n ?? 0))$ entre 0 et \(k ?? 0)"
+        case .phiPhi: return "$\\phi(\\phi(\(n ?? 0)))$"
         }
     }
     
     func displayResult() -> String {
-        guard inputValidity() else { return "Input Error" }
+        guard inputValidity() else { return "InputError".localized() }
         return "\(result)"
     }
 }

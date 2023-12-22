@@ -132,7 +132,7 @@ class PolynomialEquationVM: ObservableObject, CalculationVMProtocol {
     }
     
     func displayResult() -> String {
-        guard inputValidity() else { return "Input Error" }
+        guard inputValidity() else { return "InputError".localized() }
         switch mode {
         case .n:
             let primeFactor = PrimeFactorsVM(n: n!)

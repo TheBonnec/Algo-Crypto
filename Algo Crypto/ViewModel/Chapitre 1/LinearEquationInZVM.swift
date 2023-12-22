@@ -128,7 +128,7 @@ class LinearEquationInZVM: ObservableObject, CalculationVMProtocol {
     }
     
     func displayResult() -> String {
-        guard inputValidity() else { return "Input Error" }
+        guard inputValidity() else { return "InputError".localized() }
         
         var listString = ""
         for e in self.result {

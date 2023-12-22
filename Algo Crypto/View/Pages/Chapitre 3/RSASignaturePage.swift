@@ -6,7 +6,10 @@
 //
 
 import SwiftUI
+import CIUAisen
 import SwiftData
+import LaTeXSwiftUI
+
 
 
 struct RSASignaturePage: View {
@@ -16,8 +19,16 @@ struct RSASignaturePage: View {
     @Environment(\.modelContext) private var modelContext
     @Query var saves: [RSASignature]
     @StateObject var newRSASignature = RSASignatureVM()
-    var savesVM: [RSASignatureVM] {
-        updateSavesVM()
+    var rsaSignatureMods: [ElementDeSelecteur]
+    @State var rsaSignatureMod: ElementDeSelecteur
+    
+    
+    
+    /* ----- Init ----- */
+    
+    init() {
+        self.rsaSignatureMods = [ElementDeSelecteur(clé: "Encrypter"), ElementDeSelecteur(clé: "Decrypter")]
+        self._rsaSignatureMod = State(initialValue: self.rsaSignatureMods[0])
     }
     
     
@@ -25,53 +36,71 @@ struct RSASignaturePage: View {
     /* ----- Vue ----- */
     
     var body: some View {
-        CalculationPage<RSASignatureVM>(
-            pageTitle: Pages().rsaSignature.pageName,
-            saves: savesVM,
-            newCalculation: newRSASignature,
-            numberFields: AnyView(numberFields),
-            minimumSavedItemCellSize: 250
-        )
+        TypicalPage(title: Pages().rsaSignature.clé, newCalculation: newRSASignature, saves: saves, minimumSavesCellSize: 250) {
+            inputs
+        } results: {
+            CelluleResultat(
+                description: newRSASignature.displayLabel(),
+                résultat: newRSASignature.displayResult()
+            )
+        } savesSection: {
+            ForEach(saves) { save in
+                Cellule(alignement: .center, largeurMax: .infinity) {
+                    LaTeX(displaySavedLabel(save: save))
+                        .foregroundStyle(Color.texteSecondaire)
+                    
+                    Text(displaySavedResult(save: save))
+                        .font(.title2)
+                        .fontWeight(.bold)
+                }
+            }
+        }
     }
     
     
-    
-    var numberFields: some View {
-        VStack(spacing: 0) {
-            InformationCell(messageTitle: "AVERTISSEMENT", content: "A = personne émettrice la signature\nB = personne réceptrice de la signature.\n\nSi dans l'exercice, B est l'émettrice de la signature, alors dA devient dB, eA -> eB, et nA -> nB. ", type: .warning)
+    var inputs: some View {
+        VStack(spacing: 16) {
+            HStack {
+                LaTeX("Pour calculer $d_A$ : entrer $e_A$ dans 'Clef d'origine' puis $\\phi(n)$\nPour calculer $e_A$ : entrer $d_A$ dans 'Clef d'origine' puis $\\phi(n)$")
+                    .foregroundStyle(Color.texteSecondaire)
+                Spacer()
+            }
+            .padding(.bottom, 24)
+            
             
             switch newRSASignature.mode {
-            case .encrypt: numberFieldsCorrectKey
-            case .decrypt: numberFieldsOppositeKey
+            case .encrypt: inputsEncrypt
+            case .decrypt: inputsDecrypt
+            }
+        }
+        .onChange(of: rsaSignatureMod) { _, _ in
+            switch rsaSignatureMod.clé {
+            case "Encrypter": self.newRSASignature.mode = .encrypt
+            case "Decrypter": self.newRSASignature.mode = .decrypt
+            default: self.newRSASignature.mode = .encrypt
             }
         }
     }
     
     
-    var numberFieldsCorrectKey: some View {
-        HStack(spacing: 0) {
-            NumberField(label: "signature", placeholder: "1", input: $newRSASignature.signature)
-            NumberField(label: "dA", placeholder: "1", input: $newRSASignature.dA)
-            NumberField(label: "eB", placeholder: "1", input: $newRSASignature.eB)
-            NumberField(label: "nA", placeholder: "1", input: $newRSASignature.nA)
-            NumberField(label: "nB", placeholder: "1", input: $newRSASignature.nB)
-            ACButton(label: "Décrypter", style: .tertiary) {
-                newRSASignature.mode = .decrypt
-            }
+    var inputsEncrypt: some View {
+        HStack(spacing: 16) {
+            ChampDeTexte(label: "signature", entréeNumérale: $newRSASignature.signature)
+            ChampDeTexte(label: "dA", entréeNumérale: $newRSASignature.dA)
+            ChampDeTexte(label: "eB", entréeNumérale: $newRSASignature.eB)
+            ChampDeTexte(label: "nA", entréeNumérale: $newRSASignature.nA)
+            ChampDeTexte(label: "nB", entréeNumérale: $newRSASignature.nB)
         }
     }
     
     
-    var numberFieldsOppositeKey: some View {
-        HStack(spacing: 0) {
-            NumberField(label: "signature", placeholder: "1", input: $newRSASignature.signature)
-            NumberField(label: "dB", placeholder: "1", input: $newRSASignature.dB)
-            NumberField(label: "eA", placeholder: "1", input: $newRSASignature.eA)
-            NumberField(label: "nA", placeholder: "1", input: $newRSASignature.nA)
-            NumberField(label: "nB", placeholder: "1", input: $newRSASignature.nB)
-            ACButton(label: "Encrypter", style: .tertiary) {
-                newRSASignature.mode = .encrypt
-            }
+    var inputsDecrypt: some View {
+        HStack(spacing: 16) {
+            ChampDeTexte(label: "signature", entréeNumérale: $newRSASignature.signature)
+            ChampDeTexte(label: "dB", entréeNumérale: $newRSASignature.dB)
+            ChampDeTexte(label: "eA", entréeNumérale: $newRSASignature.eA)
+            ChampDeTexte(label: "nA", entréeNumérale: $newRSASignature.nA)
+            ChampDeTexte(label: "nB", entréeNumérale: $newRSASignature.nB)
         }
     }
     
@@ -79,15 +108,21 @@ struct RSASignaturePage: View {
     
     /* ----- Méthodes ----- */
     
-    func updateSavesVM() -> [RSASignatureVM] {
-        var s: [RSASignatureVM] = []
-        for save in self.saves {
-            let newSaveVM = RSASignatureVM(model: save)
-            s.append(newSaveVM)
+    func displaySavedLabel(save: RSASignature) -> String {
+        switch save.mode {
+        case .encrypt: return "La signature \(save.signature ?? 0) encryptée est"
+        case .decrypt: return "La signature \(save.signature ?? 0) décryptée est"
         }
-        return s
+    }
+    
+    func displaySavedResult(save: RSASignature) -> String {
+        return "\(save.result)"
     }
 }
+
+
+
+
 
 #Preview {
     RSASignaturePage()

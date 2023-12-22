@@ -26,9 +26,15 @@ struct Algo_CryptoApp: App {
             PrimeFactors.self,
             Phi.self,
             PolynomialEquation.self,
-            OppositeKey.self,
+            OppositeKeyRSA.self,
             RSA.self,
-            RSASignature.self
+            RSASignature.self,
+            
+            OrderInZ.self,
+            CyclicGroup.self,
+            Generators.self,
+            OppositeKeyElGamal.self,
+            ElGamalEncryption.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
             
@@ -52,7 +58,7 @@ struct Algo_CryptoApp: App {
                 //.padding()
         }
         .modelContainer(sharedModelContainer)
-        .defaultSize(CGSize(width: 1220, height: 860))
+        .defaultSize(CGSize(width: 1220, height: 720))
         .commands {
             CommandMenu(LocalizedStringKey("Update")) {
                 Button(action: {

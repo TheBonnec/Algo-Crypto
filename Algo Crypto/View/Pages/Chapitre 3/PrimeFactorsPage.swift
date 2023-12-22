@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
+import CIUAisen
 import SwiftData
+import LaTeXSwiftUI
 
 
 struct PrimeFactorsPage: View {
@@ -15,30 +17,33 @@ struct PrimeFactorsPage: View {
     
     @Environment(\.modelContext) private var modelContext
     @Query var saves: [PrimeFactors]
-    @StateObject var newEuclidAlgo = PrimeFactorsVM()
-    var savesVM: [PrimeFactorsVM] {
-        updateSavesVM()
-    }
+    @StateObject var newPrimeFactors = PrimeFactorsVM()
     
     
     
     /* ----- Vue ----- */
     
     var body: some View {
-        CalculationPage<PrimeFactorsVM>(
-            pageTitle: Pages().primeFactors.pageName,
-            saves: savesVM,
-            newCalculation: newEuclidAlgo,
-            numberFields: AnyView(numberFields),
-            minimumSavedItemCellSize: 250
-        )
-    }
-    
-    
-    
-    var numberFields: some View {
-        HStack(spacing: 0) {
-            NumberField(label: "n", placeholder: "2", input: $newEuclidAlgo.n)
+        TypicalPage(title: Pages().primeFactors.clé, newCalculation: newPrimeFactors, saves: saves, minimumSavesCellSize: 250) {
+            HStack(spacing: 16) {
+                ChampDeTexte(label: "n", entréeNumérale: $newPrimeFactors.n)
+            }
+        } results: {
+            CelluleResultat(
+                description: newPrimeFactors.displayLabel(),
+                résultat: newPrimeFactors.displayResult()
+            )
+        } savesSection: {
+            ForEach(saves) { save in
+                Cellule(alignement: .center, largeurMax: .infinity) {
+                    Text(displaySavedLabel(save: save))
+                        .foregroundStyle(Color.texteSecondaire)
+                    
+                    LaTeX(displaySavedResult(save: save))
+                        .font(.title2)
+                        .fontWeight(.bold)
+                }
+            }
         }
     }
     
@@ -46,13 +51,26 @@ struct PrimeFactorsPage: View {
     
     /* ----- Méthodes ----- */
     
-    func updateSavesVM() -> [PrimeFactorsVM] {
-        var s: [PrimeFactorsVM] = []
-        for save in self.saves {
-            let newSaveVM = PrimeFactorsVM(model: save)
-            s.append(newSaveVM)
+    func displaySavedLabel(save: PrimeFactors) -> String {
+        return "\(save.n ?? 0) se décompose en :"
+    }
+    
+    func displaySavedResult(save: PrimeFactors) -> String {
+        let values: [Int] = save.factors
+        var display = "$"
+        
+        for value in values {
+            display += "\(value) \\times "
         }
-        return s
+        
+        if display != "$" {
+            display.removeLast(8)
+            display += "$"
+        } else {
+            display.removeLast()
+        }
+        
+        return display
     }
 }
 

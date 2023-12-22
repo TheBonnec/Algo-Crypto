@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
+import CIUAisen
 import SwiftData
+import LaTeXSwiftUI
 
 
 struct CongruencePage: View {
@@ -16,32 +18,36 @@ struct CongruencePage: View {
     @Environment(\.modelContext) private var modelContext
     @Query var saves: [Congruence]
     @StateObject var newCongruence = CongruenceVM()
-    var savesVM: [CongruenceVM] {
-        updateSavesVM()
-    }
     
     
     
     /* ----- Vue ----- */
     
     var body: some View {
-        CalculationPage<CongruenceVM>(
-            pageTitle: Pages().congruence.pageName,
-            saves: savesVM,
-            newCalculation: newCongruence,
-            numberFields: AnyView(numberFields),
-            minimumSavedItemCellSize: 250
-        )
-    }
-    
-    
-    var numberFields: some View {
-        HStack(spacing: 0) {
-            NumberField(label: "a", placeholder: "0", input: $newCongruence.a)
-            NumberField(label: "p", placeholder: "1", input: $newCongruence.p)
-            NumberField(label: "b", placeholder: "0", input: $newCongruence.b)
-            NumberField(label: "q", placeholder: "1", input: $newCongruence.q)
-            NumberField(label: "n", placeholder: "0", input: $newCongruence.n)
+        TypicalPage(title: Pages().congruence.clé, newCalculation: newCongruence, saves: saves, minimumSavesCellSize: 200) {
+            HStack(spacing: 16) {
+                ChampDeTexte(label: "a", entréeNumérale: $newCongruence.a)
+                ChampDeTexte(label: "p", entréeNumérale: $newCongruence.p)
+                ChampDeTexte(label: "b", entréeNumérale: $newCongruence.b)
+                ChampDeTexte(label: "q", entréeNumérale: $newCongruence.q)
+                ChampDeTexte(label: "n", entréeNumérale: $newCongruence.n)
+            }
+        } results: {
+            CelluleResultat(
+                description: newCongruence.displayLabel(),
+                résultat: newCongruence.displayResult()
+            )
+        } savesSection: {
+            ForEach(saves) { save in
+                Cellule(alignement: .center, largeurMax: .infinity) {
+                    LaTeX(displaySavedLabel(save: save))
+                        .foregroundStyle(Color.texteSecondaire)
+                    
+                    Text(displaySavedResult(save: save))
+                        .font(.title2)
+                        .fontWeight(.bold)
+                }
+            }
         }
     }
     
@@ -49,13 +55,15 @@ struct CongruencePage: View {
     
     /* ----- Méthodes ----- */
     
-    func updateSavesVM() -> [CongruenceVM] {
-        var s: [CongruenceVM] = []
-        for save in self.saves {
-            let newSaveVM = CongruenceVM(model: save)
-            s.append(newSaveVM)
+    func displaySavedLabel(save: Congruence) -> String {
+        return "$\(save.a ?? 0)^{\(save.p ?? 0)} \\times x ≡ \(save.b ?? 0)^{\(save.q ?? 0)}[\(save.n ?? 0)]$"
+    }
+    
+    func displaySavedResult(save: Congruence) -> String {
+        if save.result == -444 {
+            return "NoSolution".localized()
         }
-        return s
+        return "x = \(save.result)"
     }
 }
 

@@ -15,24 +15,21 @@ class Phi {
     var n: Int?
     var p: Int?
     var q: Int?
-    var k: Int?
     var result: Int
     
-    init(mode: PhiMode = .n, n: Int? = nil, p: Int? = nil, q: Int? = nil, k: Int? = nil, result: Int = 0) {
+    init(mode: PhiMode = .n, n: Int? = nil, p: Int? = nil, q: Int? = nil, result: Int = 0) {
         self.mode = mode
         self.n = n
         self.p = p
         self.q = q
-        self.k = k
         self.result = result
     }
     
-    func setEvery(mode: PhiMode, n: Int?, p: Int?, q: Int?, k: Int?, result: Int) {
+    func setEvery(mode: PhiMode, n: Int?, p: Int?, q: Int?, result: Int) {
         self.mode = mode
         self.n = n
         self.p = p
         self.q = q
-        self.k = k
         self.result = result
     }
 }
@@ -42,5 +39,5 @@ class Phi {
 enum PhiMode: Int, Codable {
     case n = 0
     case pq = 1
-    case nk = 2
+    case phiPhi = 2
 }

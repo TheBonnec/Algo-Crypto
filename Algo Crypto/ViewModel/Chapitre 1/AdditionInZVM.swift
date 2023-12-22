@@ -91,11 +91,11 @@ class AdditionInZVM: ObservableObject, CalculationVMProtocol {
     
     
     func displayLabel() -> String {
-        return "$\\bar{\(a ?? 0)} ⊕ \\bar{\(b ?? 0)} =$"
+        return "$\\bar{\(a ?? 0)} ⊕ \\bar{\(b ?? 0)}$"
     }
     
     func displayResult() -> String {
-        guard inputValidity() else { return "Input Error" }
+        guard inputValidity() else { return "InputError".localized() }
         return "$\\bar{\(result)}$"
     }
 }

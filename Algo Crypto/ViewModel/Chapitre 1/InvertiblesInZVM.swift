@@ -96,7 +96,7 @@ class InvertiblesInZVM: ObservableObject, CalculationVMProtocol {
     }
     
     func displayResult() -> String {
-        guard inputValidity() else { return "Input Error" }
+        guard inputValidity() else { return "InputError".localized() }
         
         if n! >= 0 {
             var listString = ""

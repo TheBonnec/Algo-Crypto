@@ -19,6 +19,8 @@
 "Chapter4" = "Chapter 4";
 "InputError" = "Incorrect input values";
 "TheVoid" = "No, really. Nothing.";
+"NoCalculation" = "No calculation saved.\nNothing. Nada. Ничего нет.";
+"NoSolution" = "No Solution";
 
 "Update" = "Update";
 "LastGitHubVersion" = "Last version on GitHub";

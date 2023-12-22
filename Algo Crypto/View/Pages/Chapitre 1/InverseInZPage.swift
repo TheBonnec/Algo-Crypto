@@ -6,7 +6,10 @@
 //
 
 import SwiftUI
+import CIUAisen
 import SwiftData
+import LaTeXSwiftUI
+
 
 
 struct InverseInZPage: View {
@@ -16,29 +19,33 @@ struct InverseInZPage: View {
     @Environment(\.modelContext) private var modelContext
     @Query var saves: [InverseInZ]
     @StateObject var newInverse = InverseInZVM()
-    var savesVM: [InverseInZVM] {
-        updateSavesVM()
-    }
     
     
     
     /* ----- Vue ----- */
     
     var body: some View {
-        CalculationPage<InverseInZVM>(
-            pageTitle: Pages().inverseInZ.pageName,
-            saves: savesVM,
-            newCalculation: newInverse,
-            numberFields: AnyView(numberFields),
-            minimumSavedItemCellSize: 250
-        )
-    }
-    
-    
-    var numberFields: some View {
-        HStack(spacing: 0) {
-            NumberField(label: "a", placeholder: "0", input: $newInverse.a)
-            NumberField(label: "n", placeholder: "1", input: $newInverse.n)
+        TypicalPage(title: Pages().inverseInZ.clé, newCalculation: newInverse, saves: saves, minimumSavesCellSize: 250) {
+            HStack(spacing: 16) {
+                ChampDeTexte(label: "a", entréeNumérale: $newInverse.a)
+                ChampDeTexte(label: "n", entréeNumérale: $newInverse.n)
+            }
+        } results: {
+            CelluleResultat(
+                description: newInverse.displayLabel(),
+                résultat: newInverse.displayResult()
+            )
+        } savesSection: {
+            ForEach(saves) { save in
+                Cellule(alignement: .center, largeurMax: .infinity) {
+                    LaTeX(displaySavedLabel(save: save))
+                        .foregroundStyle(Color.texteSecondaire)
+                    
+                    LaTeX(displaySavedResult(save: save))
+                        .font(.title2)
+                        .fontWeight(.bold)
+                }
+            }
         }
     }
     
@@ -46,13 +53,17 @@ struct InverseInZPage: View {
     
     /* ----- Méthodes ----- */
     
-    func updateSavesVM() -> [InverseInZVM] {
-        var s: [InverseInZVM] = []
-        for save in self.saves {
-            let newSaveVM = InverseInZVM(model: save)
-            s.append(newSaveVM)
+    func displaySavedLabel(save: InverseInZ) -> String {
+        return "\("InverseOf".localized()) \(save.a ?? 0) \("in".localized()) $\\frac{\\mathbb{Z}}{\(save.n ?? 0)\\mathbb{Z}}$"
+    }
+    
+    func displaySavedResult(save: InverseInZ) -> String {
+        if save.inverse == -1 {
+            return "No inverse for \(save.a!)"
+        } else if save.inverse == -2 {
+            return "No inverse for $a \\geq n$"
         }
-        return s
+        return "\(save.inverse)"
     }
 }
 
